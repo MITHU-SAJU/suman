@@ -1,0 +1,619 @@
+    <!DOCTYPE html>
+    <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="light" data-sidebar-size="lg"
+        data-sidebar-image="none">
+
+    <head>
+
+        <title>Kanakku - Bootstrap Admin HTML Template</title>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="../assets/img/favicon.png">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+
+        <!-- Font family -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet">
+
+        <!-- Fontawesome CSS -->
+        <link rel="stylesheet" href="../assets/plugins/fontawesome/css/fontawesome.min.css">
+        <link rel="stylesheet" href="../assets/plugins/fontawesome/css/all.min.css">
+
+        <!-- Feather CSS -->
+        <link rel="stylesheet" href="../assets/plugins/feather/feather.css">
+
+        <!-- Datepicker CSS -->
+        <link rel="stylesheet" href="../assets/css/bootstrap-datetimepicker.min.css">
+
+        <!-- Datatables CSS -->
+        <link rel="stylesheet" href="../assets/plugins/datatables/datatables.min.css">
+
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="../assets/css/style.css">
+
+        <!-- Layout JS -->
+        <script src="../assets/js/layout.js"></script>
+
+    </head>
+
+    <body>
+
+        <!-- Main Wrapper -->
+        <div class="main-wrapper">
+            <!-- Header -->
+            <div class="header header-one">
+
+                <a href="index.html"
+                    class="d-inline-flex d-sm-inline-flex align-items-center d-md-inline-flex d-lg-none align-items-center device-logo">
+                    <img src="assets/img/logo.png" class="img-fluid logo2" alt="Logo">
+                </a>
+                <div class="main-logo d-inline float-start d-lg-flex align-items-center d-none d-sm-none d-md-none">
+                    <div class="logo-white">
+                        <a href="index.html">
+                            <img src="assets/img/logo-full-white.png" class="img-fluid logo-blue" alt="Logo">
+                        </a>
+                        <a href="index.html">
+                            <img src="assets/img/logo-small-white.png" class="img-fluid logo-small" alt="Logo">
+                        </a>
+                    </div>
+                    <div class="logo-color">
+                        <a href="index.html">
+                            <img src="assets/img/logo.png" class="img-fluid logo-blue" alt="Logo">
+                        </a>
+                        <a href="index.html">
+                            <img src="assets/img/logo-small.png" class="img-fluid logo-small" alt="Logo">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sidebar Toggle -->
+                <a href="javascript:void(0);" id="toggle_btn">
+                    <span class="toggle-bars">
+                        <span class="bar-icons"></span>
+                        <span class="bar-icons"></span>
+                        <span class="bar-icons"></span>
+                        <span class="bar-icons"></span>
+                    </span>
+                </a>
+                <!-- /Sidebar Toggle -->
+
+
+                <!-- Mobile Menu Toggle -->
+                <a class="mobile_btn" id="mobile_btn">
+                    <i class="fas fa-bars"></i>
+                </a>
+                <!-- /Mobile Menu Toggle -->
+
+                <!-- Header Menu -->
+                <ul class="nav nav-tabs user-menu">
+
+
+                    <li class="nav-item  has-arrow dropdown-heads ">
+                        <a href="javascript:void(0);" class="toggle-switch">
+                            <i class="fe fe-moon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown  flag-nav dropdown-heads">
+                        <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button">
+                            <i class="fe fe-bell"></i> <span class="badge rounded-pill"></span>
+                        </a>
+                        <div class="dropdown-menu notifications">
+                            <div class="topnav-dropdown-header">
+                                <div class="notification-title">Notifications <a href="notifications.html">View all</a>
+                                </div>
+                                <a href="javascript:void(0)" class="clear-noti d-flex align-items-center">Mark all as
+                                    read
+                                    <i class="fe fe-check-circle"></i></a>
+                            </div>
+                            <div class="noti-content">
+                                <ul class="notification-list">
+                                    <li class="notification-message">
+                                        <a href="profile.html">
+                                            <div class="d-flex">
+                                                <span class="avatar avatar-md active">
+                                                    <img class="avatar-img rounded-circle" alt="avatar-img"
+                                                        src="assets/img/profiles/avatar-02.jpg">
+                                                </span>
+                                                <div class="media-body">
+                                                    <p class="noti-details"><span class="noti-title">Lex Murphy</span>
+                                                        requested access to <span class="noti-title">UNIX directory tree
+                                                            hierarchy</span></p>
+                                                    <div class="notification-btn">
+                                                        <span class="btn btn-primary">Accept</span>
+                                                        <span class="btn btn-outline-primary">Reject</span>
+                                                    </div>
+                                                    <p class="noti-time"><span class="notification-time">Today at 9:42
+                                                            AM</span></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="profile.html">
+                                            <div class="d-flex">
+                                                <span class="avatar avatar-md active">
+                                                    <img class="avatar-img rounded-circle" alt="avatar-img"
+                                                        src="assets/img/profiles/avatar-10.jpg">
+                                                </span>
+                                                <div class="media-body">
+                                                    <p class="noti-details"><span class="noti-title">Ray Arnold</span>
+                                                        left
+                                                        6 comments <span class="noti-title">on Isla Nublar SOC2
+                                                            compliance
+                                                            report</span></p>
+                                                    <p class="noti-time"><span class="notification-time">Yesterday at
+                                                            11:42
+                                                            PM</span></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="profile.html">
+                                            <div class="d-flex">
+                                                <span class="avatar avatar-md">
+                                                    <img class="avatar-img rounded-circle" alt="avatar-img"
+                                                        src="assets/img/profiles/avatar-13.jpg">
+                                                </span>
+                                                <div class="media-body">
+                                                    <p class="noti-details"><span class="noti-title">Dennis Nedry</span>
+                                                        commented on <span class="noti-title"> Isla Nublar SOC2
+                                                            compliance
+                                                            report</span></p>
+                                                    <blockquote>
+                                                        “Oh, I finished de-bugging the phones, but the system's
+                                                        compiling
+                                                        for eighteen minutes, or twenty. So, some minor systems may go
+                                                        on
+                                                        and off for a while.”
+                                                    </blockquote>
+                                                    <p class="noti-time"><span class="notification-time">Yesterday at
+                                                            5:42
+                                                            PM</span></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="profile.html">
+                                            <div class="d-flex">
+                                                <span class="avatar avatar-md">
+                                                    <img class="avatar-img rounded-circle" alt="avatar-img"
+                                                        src="assets/img/profiles/avatar-05.jpg">
+                                                </span>
+                                                <div class="media-body">
+                                                    <p class="noti-details"><span class="noti-title">John Hammond</span>
+                                                        created <span class="noti-title">Isla Nublar SOC2 compliance
+                                                            report</span></p>
+                                                    <p class="noti-time"><span class="notification-time">Last Wednesday
+                                                            at
+                                                            11:15 AM</span></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="topnav-dropdown-footer">
+                                <a href="#">Clear All</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item  has-arrow dropdown-heads ">
+                        <a href="javascript:void(0);" class="win-maximize">
+                            <i class="fe fe-maximize"></i>
+                        </a>
+                    </li>
+                    <!-- User Menu -->
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0)" class="user-link  nav-link" data-bs-toggle="dropdown">
+                            <span class="user-img">
+                                <img src="assets/img/profiles/avatar-07.jpg" alt="img" class="profilesidebar">
+                                <span class="animate-circle"></span>
+                            </span>
+                            <span class="user-content">
+                                <span class="user-details">Admin</span>
+                                <span class="user-name">John Smith</span>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu menu-drop-user">
+                            <div class="profilemenu">
+                                <div class="subscription-menu">
+                                    <ul>
+                                        <li>
+                                            <a class="dropdown-item" href="profile.html">Profile</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="settings.html">Settings</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="subscription-logout">
+                                    <ul>
+                                        <li class="pb-0">
+                                            <a class="dropdown-item" href="login.html">Log Out</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- /User Menu -->
+
+                </ul>
+
+                <!-- /Header Menu -->
+
+            </div>
+            <!-- /Header -->
+
+            <!-- Sidebar -->
+            <div class="sidebar" id="sidebar">
+                <div class="sidebar-inner slimscroll">
+                    <div id="sidebar-menu" class="sidebar-menu">
+
+                        <ul class="sidebar-vertical">
+                            <!-- Main -->
+                            <li class="menu-title"><span>Main</span></li>
+                            <li>
+                                <a href="../index.html"><i class="fe fe-home"></i>
+                                    <span>Dashboard</span></a>
+                            </li>
+
+                            <!-- /Main -->
+
+
+
+                            <!-- Customers -->
+                            <li class="menu-title"><span>Customers</span></li>
+                            <li>
+                                <a href="./customers.html"><i class="fe fe-users"></i>
+                                    <span>Customers</span></a>
+                            </li>
+                            <li>
+                                <a href="../vendors/vendors.html"><i class="fe fe-user"></i> <span>Vendors</span></a>
+                            </li>
+                            <!-- /Customers -->
+
+                            <!-- Inventory -->
+                            <li class="menu-title"><span>Inventory</span></li>
+                            <li class="submenu">
+                                <a href="#"><i class="fe fe-package"></i> <span> Products / Services</span> <span
+                                        class="menu-arrow"></span></a>
+                                <ul style="display: none;">
+                                    <li><a href="../products/product-list.html">Product List</a></li>
+                                    <li><a href="../products/category.html">Category</a></li>
+
+                                    <li><a href="../products/units.html">Units</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="../inventory/inventory.html"><i class="fe fe-user"></i>
+                                    <span>Inventory</span></a>
+                            </li>
+                            <!-- /Inventory -->
+
+                            <!-- Signature -->
+                            <li class="menu-title"><span>Signature</span></li>
+                            <li>
+                                <a href="signature-list.html"><i class="fe fe-clipboard"></i> <span>List of
+                                        Signature</span></a>
+                                <a href="signature-invoice.html"><i class="fe fe-box"></i> <span>Signature
+                                        Invoice</span></a>
+                            </li>
+                            <!-- /Signature -->
+
+                            <!-- Sales -->
+                            <li class="menu-title"><span>Sales</span></li>
+                            <li class="submenu">
+
+                                <a href="#"><i class="fe fe-file"></i> <span>Invoices</span><span
+                                        class="menu-arrow"></span></a>
+                                <ul style="display: none;">
+                                    <li><a href="invoices.html">Invoices List</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="recurring-invoices.html"><i class="fe fe-clipboard"></i> <span>Recurring
+                                        Invoices</span></a>
+                            </li>
+                            <li>
+                                <a href="credit-notes.html"><i class="fe fe-edit"></i> <span>Credit Notes</span></a>
+                            </li>
+                            <!-- /Sales -->
+
+                            <!-- Purchases -->
+                            <li class="menu-title"><span>Purchases</span></li>
+                            <li>
+                                <a href="purchases.html"><i class="fe fe-shopping-cart"></i> <span>Purchases</span></a>
+                            </li>
+                            <li>
+                                <a href="purchase-orders.html"><i class="fe fe-shopping-bag"></i> <span>Purchase
+                                        Orders</span></a>
+                            </li>
+                            <li>
+                                <a href="debit-notes.html"><i class="fe fe-file-text"></i> <span>Debit Notes</span></a>
+                            </li>
+                            <!-- /Purchases -->
+
+                            <!-- Finance & Accounts -->
+                            <li class="menu-title"><span>Finance & Accounts</span></li>
+                            <li>
+                                <a href="expenses.html"><i class="fe fe-file-plus"></i> <span>Expenses</span></a>
+                            </li>
+                            <li>
+                                <a href="payments.html"><i class="fe fe-credit-card"></i> <span>Payments</span></a>
+                            </li>
+                            <!-- /Finance & Accounts -->
+
+                            <!-- Quotations -->
+                            <li class="menu-title"><span>Quotations</span></li>
+                            <li>
+                                <a href="quotations.html"><i class="fe fe-clipboard"></i> <span>Quotations</span></a>
+                            </li>
+                            <li>
+                                <a href="delivery-challans.html"><i class="fe fe-file-text"></i> <span>Delivery
+                                        Challans</span></a>
+                            </li>
+                            <!-- /Quotations -->
+
+                            <!-- Reports -->
+                            <li class="menu-title"><span>Reports</span></li>
+                            <li>
+                                <a href="payment-summary.html"><i class="fe fe-credit-card"></i> <span>Payment
+                                        Summary</span></a>
+                            </li>
+                            <!-- /Reports -->
+
+                            <!-- User Management -->
+                            <li class="menu-title"><span>User Management</span></li>
+                            <li>
+                                <a href="../users/users.html"><i class="fe fe-user"></i> <span>Users</span></a>
+                            </li>
+                            <li>
+                                <a href="roles-permission.html"><i class="fe fe-clipboard"></i> <span>Roles &
+                                        Permission</span></a>
+                            </li>
+                            <li>
+                                <a href="delete-account-request.html"><i class="fe fe-trash-2"></i> <span>Delete Account
+                                        Request</span></a>
+                            </li>
+                            <!-- /User Management -->
+
+
+
+
+
+
+                            <!-- Settings -->
+                            <li class="menu-title"><span>Settings</span></li>
+                            <li>
+                                <a href="settings.html"><i class="fe fe-settings"></i> <span>Settings</span></a>
+                            </li>
+                            <li>
+                                <a href="login.html"><i class="fe fe-power"></i> <span>Logout</span></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /Sidebar -->
+            <!-- Page Wrapper -->
+            <div class="page-wrapper">
+                <div class="content container-fluid">
+                    <div class="card mb-0">
+                        <div class="card-body">
+                            <!-- Page Header -->
+                            <div class="page-header">
+                                <div class="content-page-header">
+                                    <h5>Add Customer</h5>
+                                </div>
+                            </div>
+                            <!-- /Page Header -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form action="#">
+                                        <div class="form-group-item">
+                                            <h5 class="form-title">Basic Details</h5>
+                                            <div class="profile-picture">
+                                                <div class="upload-profile">
+                                                    <div class="profile-img">
+                                                        <img id="blah" class="avatar"
+                                                            src="assets/img/profiles/avatar-14.jpg" alt="profile-img">
+                                                    </div>
+                                                    <div class="add-profile">
+                                                        <h5>Upload a New Photo</h5>
+                                                        <span>Profile-pic.jpg</span>
+                                                    </div>
+                                                </div>
+                                                <div class="img-upload">
+                                                    <label class="btn btn-upload">
+                                                        Upload <input type="file">
+                                                    </label>
+                                                    <a class="btn btn-remove">Remove</a>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                                    <div class="input-block mb-3">
+                                                        <label>Name <span class="text-danger">*</span></label>
+                                                        <input type="text" class="form-control"
+                                                            placeholder="Enter Name">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                                    <div class="input-block mb-3">
+                                                        <label>Email <span class="text-danger">*</span></label>
+                                                        <input type="email" class="form-control"
+                                                            placeholder="Enter Email Address">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                                    <div class="input-block mb-3">
+                                                        <label>Phone <span class="text-danger">*</span></label>
+                                                        <input type="text" id="mobile_code" class="form-control"
+                                                            placeholder="Phone Number" name="name">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                                    <div class="input-block mb-3">
+                                                        <label>Website</label>
+                                                        <input type="text" class="form-control"
+                                                            placeholder="Enter Website Address">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                                    <div class="input-block mb-3">
+                                                        <label>Notes</label>
+                                                        <input type="email" class="form-control"
+                                                            placeholder="Enter Your Notes">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group-item">
+                                            <div class="row align-items-end">
+                                                <div class="col-md-6">
+                                                    <div class="billing-btn mb-2">
+                                                        <h5 class="form-title">Billing Address</h5>
+                                                    </div>
+                                                    <div class="input-block mb-3">
+                                                        <label>Name</label>
+                                                        <input type="text" class="form-control"
+                                                            placeholder="Enter Name">
+                                                    </div>
+                                                    <div class="input-block mb-3">
+                                                        <label>Address Line 1</label>
+                                                        <input type="text" class="form-control"
+                                                            placeholder="Enter Address 1">
+                                                    </div>
+                                                    <div class="input-block mb-3">
+                                                        <label>Address Line 2</label>
+                                                        <input type="text" class="form-control"
+                                                            placeholder="Enter Address 2">
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-md-12">
+                                                            <div class="input-block mb-3">
+                                                                <label>Country</label>
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Enter Country">
+                                                            </div>
+                                                            <div class="input-block mb-3">
+                                                                <label>City</label>
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Enter City">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-12">
+                                                            <div class="input-block mb-3">
+                                                                <label>State</label>
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Enter State">
+                                                            </div>
+                                                            <div class="input-block mb-3">
+                                                                <label>Pincode</label>
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Enter Pincode">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="billing-btn">
+                                                        <h5 class="form-title mb-0">Shipping Address</h5>
+                                                        <a href="#" class="btn btn-primary">Copy from Billing</a>
+                                                    </div>
+                                                    <div class="input-block mb-3">
+                                                        <label>Name</label>
+                                                        <input type="text" class="form-control"
+                                                            placeholder="Enter Name">
+                                                    </div>
+                                                    <div class="input-block mb-3">
+                                                        <label>Address Line 1</label>
+                                                        <input type="text" class="form-control"
+                                                            placeholder="Enter Address 1">
+                                                    </div>
+                                                    <div class="input-block mb-3">
+                                                        <label>Address Line 2</label>
+                                                        <input type="text" class="form-control"
+                                                            placeholder="Enter Address 2">
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-md-12">
+                                                            <div class="input-block mb-3">
+                                                                <label>Country</label>
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Enter Country">
+                                                            </div>
+                                                            <div class="input-block mb-3">
+                                                                <label>City</label>
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Enter City">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-12">
+                                                            <div class="input-block mb-3">
+                                                                <label>State</label>
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Enter State">
+                                                            </div>
+                                                            <div class="input-block mb-3">
+                                                                <label>Pincode</label>
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Enter Pincode">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="add-customer-btns text-end">
+                                            <a href="customers.html" class="btn customer-btn-cancel">Cancel</a>
+                                            <a href="customers.html" class="btn customer-btn-save">Save Changes</a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Page Wrapper -->
+
+        <!-- jQuery -->
+        <script src="../assets/js/jquery-3.7.1.min.js"></script>
+
+        <!-- Bootstrap Core JS -->
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Datatable JS -->
+        <script src="../assets/plugins/datatables/datatables.min.js"></script>
+
+        <!-- select CSS -->
+        <script src="../assets/plugins/select2/js/select2.min.js"></script>
+
+        <!-- Slimscroll JS -->
+        <script src="../assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+        <!-- Datepicker Core JS -->
+        <script src="../assets/plugins/moment/moment.min.js"></script>
+        <script src="../assets/js/bootstrap-datetimepicker.min.js"></script>
+
+        <!-- multiselect JS -->
+        <script src="../assets/js/jquery-ui.min.js"></script>
+
+        <!-- Theme Settings JS -->
+        <script src="../assets/js/theme-settings.js"></script>
+        <script src="../assets/js/greedynav.js"></script>
+
+        <!-- Custom JS -->
+        <script src="../assets/js/script.js"></script>
+
+    </body>
