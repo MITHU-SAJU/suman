@@ -30,6 +30,14 @@
       {
         "aria-progressbar-name": "off"
       }
-    ]
+    ],
+    "axe/parsing": [
+      "default",
+      {
+        "duplicate-id-active": "off"
+      }
+    ],
+    "compat-api/css": "off",
+    "css-prefix-order": "off"
   }
 }

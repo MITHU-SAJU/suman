@@ -2,13 +2,14 @@
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="light" data-sidebar-size="lg"
     data-sidebar-image="none">
 
+
 <head>
     <meta charset="utf-8">
 
-    <title>Kanakku - Bootstrap Admin HTML Template</title>
+    <title>Iyappaa</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="../assets/img/favicon.png">
+    <link rel="shortcut icon" href="../assets/img/logo-new.jpg">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -25,6 +26,8 @@
     <!-- Feather CSS -->
     <link rel="stylesheet" href="../assets/plugins/feather/feather.css">
 
+    <link rel="stylesheet" href="../assets/plugins/select2/css/select2.min.css">
+
     <!-- Datepicker CSS -->
     <link rel="stylesheet" href="../assets/css/bootstrap-datetimepicker.min.css">
 
@@ -38,10 +41,70 @@
     <script src="../assets/js/layout.js"></script>
 
 </head>
+<style>
+    .custom-card {
+        position: relative;
+        padding: 20px;
+        height: 179px;
+    }
+
+    /* Match form-control look */
+    .radio-container {
+        height: 44px;
+        border: 1px solid #ced4da;
+        border-radius: 6px;
+        background-color: #fff;
+        padding: 0 12px;
+        transition: all 0.3s ease;
+    }
+
+
+
+    .radio-label {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        color: #495057;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+
+    .radio-label input {
+        appearance: none;
+        width: 18px;
+        height: 18px;
+        border: 2px solid #adb5bd;
+        border-radius: 50%;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .radio-label input:checked {
+        border-color: #dc3545;
+        background-color: #dc3545;
+    }
+
+    .radio-label input:checked::after {
+        content: "";
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        width: 6px;
+        height: 6px;
+        background: white;
+        border-radius: 50%;
+    }
+
+    .radio-label span {
+        user-select: none;
+    }
+</style>
+
 
 <body>
-
-
     <!-- Main Wrapper -->
     <div class="main-wrapper">
 
@@ -50,7 +113,7 @@
 
             <a href="index.html"
                 class="d-inline-flex d-sm-inline-flex align-items-center d-md-inline-flex d-lg-none align-items-center device-logo">
-                <img src="assets/img/logo.png" class="img-fluid logo2" alt="Logo">
+                <img src="../assets/img/logo-new.jpg" class="img-fluid logo2" alt="Logo">
             </a>
             <div class="main-logo d-inline float-start d-lg-flex align-items-center d-none d-sm-none d-md-none">
                 <div class="logo-white">
@@ -63,10 +126,10 @@
                 </div>
                 <div class="logo-color">
                     <a href="index.html">
-                        <img src="assets/img/logo.png" class="img-fluid logo-blue" alt="Logo">
+                        <img src="../assets/img/logo-new.jpg" class="img-fluid logo-blue" alt="Logo">
                     </a>
                     <a href="index.html">
-                        <img src="assets/img/logo-small.png" class="img-fluid logo-small" alt="Logo">
+                        <img src="../assets/img/logo-new.jpg" class="img-fluid logo-small" alt="Logo">
                     </a>
                 </div>
             </div>
@@ -116,7 +179,7 @@
                                         <div class="d-flex">
                                             <span class="avatar avatar-md active">
                                                 <img class="avatar-img rounded-circle" alt="avatar-img"
-                                                    src="assets/img/profiles/avatar-02.jpg">
+                                                    src="../assets/img/profiles/avatar-02.jpg">
                                             </span>
                                             <div class="media-body">
                                                 <p class="noti-details"><span class="noti-title">Lex Murphy</span>
@@ -137,7 +200,7 @@
                                         <div class="d-flex">
                                             <span class="avatar avatar-md active">
                                                 <img class="avatar-img rounded-circle" alt="avatar-img"
-                                                    src="assets/img/profiles/avatar-10.jpg">
+                                                    src="../assets/img/profiles/avatar-10.jpg">
                                             </span>
                                             <div class="media-body">
                                                 <p class="noti-details"><span class="noti-title">Ray Arnold</span> left
@@ -176,7 +239,7 @@
                                         <div class="d-flex">
                                             <span class="avatar avatar-md">
                                                 <img class="avatar-img rounded-circle" alt="avatar-img"
-                                                    src="assets/img/profiles/avatar-05.jpg">
+                                                    src="../assets/img/avatar-profile.jpg">
                                             </span>
                                             <div class="media-body">
                                                 <p class="noti-details"><span class="noti-title">John Hammond</span>
@@ -204,7 +267,7 @@
                 <li class="nav-item dropdown">
                     <a href="javascript:void(0)" class="user-link  nav-link" data-bs-toggle="dropdown">
                         <span class="user-img">
-                            <img src="assets/img/profiles/avatar-07.jpg" alt="img" class="profilesidebar">
+                            <img src="../assets/img/avatar-profile.jpg" alt="img" class="profilesidebar">
                             <span class="animate-circle"></span>
                         </span>
                         <span class="user-content">
@@ -274,7 +337,7 @@
                         <!-- Inventory -->
                         <li class="menu-title"><span>Inventory</span></li>
                         <li class="submenu">
-                            <a href="#"><i class="fe fe-package"></i> <span> Products / Services</span> <span
+                            <a href="#"><i class="fe fe-package"></i> <span> Products</span> <span
                                     class="menu-arrow"></span></a>
                             <ul style="display: none;">
                                 <li><a href="product-list.html">Product List</a></li>
@@ -288,103 +351,31 @@
                         </li>
                         <!-- /Inventory -->
 
-                        <!-- Signature -->
-                        <li class="menu-title"><span>Signature</span></li>
-                        <li>
-                            <a href="signature-list.html"><i class="fe fe-clipboard"></i> <span>List of
-                                    Signature</span></a>
-                            <a href="signature-invoice.html"><i class="fe fe-box"></i> <span>Signature
-                                    Invoice</span></a>
-                        </li>
-                        <!-- /Signature -->
 
-                        <!-- Sales -->
-                        <li class="menu-title"><span>Sales</span></li>
-                        <li class="submenu">
 
-                            <a href="#"><i class="fe fe-file"></i> <span>Invoices</span><span
-                                    class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="invoices.html">Invoices List</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="recurring-invoices.html"><i class="fe fe-clipboard"></i> <span>Recurring
-                                    Invoices</span></a>
-                        </li>
-                        <li>
-                            <a href="credit-notes.html"><i class="fe fe-edit"></i> <span>Credit Notes</span></a>
-                        </li>
-                        <!-- /Sales -->
+                        <!-- Purchases -->
+
 
                         <!-- Purchases -->
                         <li class="menu-title"><span>Purchases</span></li>
+
                         <li>
-                            <a href="purchases.html"><i class="fe fe-shopping-cart"></i> <span>Purchases</span></a>
-                        </li>
-                        <li>
-                            <a href="purchase-orders.html"><i class="fe fe-shopping-bag"></i> <span>Purchase
+                            <a href="../purchase/purchase-order.html"><i class="fe fe-shopping-bag"></i> <span>Purchase
                                     Orders</span></a>
                         </li>
-                        <li>
-                            <a href="debit-notes.html"><i class="fe fe-file-text"></i> <span>Debit Notes</span></a>
-                        </li>
-                        <!-- /Purchases -->
-
-                        <!-- Finance & Accounts -->
-                        <li class="menu-title"><span>Finance & Accounts</span></li>
-                        <li>
-                            <a href="expenses.html"><i class="fe fe-file-plus"></i> <span>Expenses</span></a>
-                        </li>
-                        <li>
-                            <a href="payments.html"><i class="fe fe-credit-card"></i> <span>Payments</span></a>
-                        </li>
-                        <!-- /Finance & Accounts -->
-
-                        <!-- Quotations -->
-                        <li class="menu-title"><span>Quotations</span></li>
-                        <li>
-                            <a href="quotations.html"><i class="fe fe-clipboard"></i> <span>Quotations</span></a>
-                        </li>
-                        <li>
-                            <a href="delivery-challans.html"><i class="fe fe-file-text"></i> <span>Delivery
-                                    Challans</span></a>
-                        </li>
-                        <!-- /Quotations -->
-
-                        <!-- Reports -->
-                        <li class="menu-title"><span>Reports</span></li>
-                        <li>
-                            <a href="payment-summary.html"><i class="fe fe-credit-card"></i> <span>Payment
-                                    Summary</span></a>
-                        </li>
-                        <!-- /Reports -->
 
                         <!-- User Management -->
                         <li class="menu-title"><span>User Management</span></li>
                         <li>
                             <a href="../users/users.html"><i class="fe fe-user"></i> <span>Users</span></a>
                         </li>
-                        <li>
-                            <a href="roles-permission.html"><i class="fe fe-clipboard"></i> <span>Roles &
-                                    Permission</span></a>
-                        </li>
-                        <li>
-                            <a href="delete-account-request.html"><i class="fe fe-trash-2"></i> <span>Delete Account
-                                    Request</span></a>
-                        </li>
-                        <!-- /User Management -->
 
 
 
 
 
 
-                        <!-- Settings -->
-                        <li class="menu-title"><span>Settings</span></li>
-                        <li>
-                            <a href="settings.html"><i class="fe fe-settings"></i> <span>Settings</span></a>
-                        </li>
+
                         <li>
                             <a href="login.html"><i class="fe fe-power"></i> <span>Logout</span></a>
                         </li>
@@ -395,209 +386,522 @@
         </div>
         <!-- /Sidebar -->
 
-        <!-- Page Wrapper -->
+
         <div class="page-wrapper">
             <div class="content container-fluid">
-                <div class="card mb-0">
+                <!-- Main Card -->
+                <div class="card mb-4 shadow-sm rounded-4">
                     <div class="card-body">
-                        <div class="page-header">
-                            <div class="content-page-header">
-                                <h5>Add Products / Services</h5>
-                            </div>
+                        <!-- Page Header -->
+                        <div class="page-header mb-4">
+                            <h4 class="fw-bold">Add Products </h4>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group-item">
-                                    <h5 class="form-title">Basic Details</h5>
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-6 col-sm-12">
-                                            <div class="input-block mb-3">
-                                                <label>Item Type<span class="text-danger"> *</span></label>
-                                                <div class="align-center">
-                                                    <div class="form-control me-3">
-                                                        <label class="custom_radio me-3 mb-0">
-                                                            <input type="radio" class="form-control" name="payment"
-                                                                checked>
-                                                            <span class="checkmark"></span> Product
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <label class="custom_radio mb-0">
-                                                            <input type="radio" name="payment">
-                                                            <span class="checkmark"></span> Service
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-12">
-                                            <div class="input-block mb-3">
-                                                <label>Product Name <span class="text-danger"> *</span></label>
-                                                <input type="text" class="form-control"
+
+                        <!-- Basic Details Section -->
+                        <div class="card border shadow-sm rounded-4 mb-4">
+                            <div class="card-body">
+                                <div class="form-group-item mb-4">
+                                    <h5 class="form-title ">Basic Details</h5>
+                                    <div class="row ">
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="input-block">
+                                                <label>Product Name <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control mb-3"
                                                     placeholder="Enter Product Name">
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-12">
-                                            <div class="input-block mb-3 add-products">
-                                                <label>Product Code (SKU)<span class="text-danger"> *</span></label>
-                                                <input type="text" class="form-control"
+
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="input-block">
+                                                <label>Short Code <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control mb-3"
+                                                    placeholder="Enter Short Code">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="input-block">
+                                                <label>Product Code <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control mb-3"
                                                     placeholder="Enter Product Code">
-                                                <button type="submit" class="btn btn-primary">
-                                                    Generate Code
-                                                </button>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-12">
-                                            <div class="input-block mb-3">
-                                                <label>Category <span class="text-danger"> *</span></label>
-                                                <input type="text" class="form-control"
-                                                    placeholder="Enter Category Name">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-12">
-                                            <div class="input-block mb-3">
-                                                <label>Selling Price <span class="text-danger"> *</span></label>
-                                                <input type="text" class="form-control"
-                                                    placeholder="Enter Selling Price">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-12">
-                                            <div class="input-block mb-3">
-                                                <label>Purchase Price <span class="text-danger"> *</span></label>
-                                                <input type="text" class="form-control"
-                                                    placeholder="Enter Purchase Prices">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-12">
-                                            <div class="input-block mb-3">
-                                                <label>Quantity <span class="text-danger"> *</span></label>
-                                                <input type="number" class="form-control" placeholder="Enter Quantity"
-                                                    name="name">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-12">
-                                            <div class="input-block mb-3">
-                                                <label>Units</label>
+
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="input-block">
+                                                <label>Category</label>
                                                 <select class="select">
-                                                    <option>Select Units</option>
-                                                    <option>Pieces</option>
-                                                    <option>Box</option>
-                                                    <option>Kilograms</option>
+                                                    <option>GRAINS</option>
+                                                    <option>SWEETS</option>
+                                                    <option>SNACKS</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-12">
-                                            <div class="input-block mb-3">
-                                                <label>Discount Type</label>
-                                                <select class="select">
-                                                    <option>Select Discount Type</option>
-                                                    <option>Percentage</option>
-                                                    <option>Fixed</option>
-                                                </select>
-                                            </div>
-                                        </div>
+
                                         <div class="col-lg-4 col-md-6 col-sm-12">
                                             <div class="input-block mb-3 add-products">
                                                 <label>Generate Barcode</label>
-                                                <input type="text" class="form-control"
+                                                <input type="text" class="form-control mb-3"
                                                     placeholder="Enter Barcode Code">
                                                 <button type="submit" class="btn btn-primary">
                                                     Generate Code
                                                 </button>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-12">
-                                            <div class="input-block mb-3">
-                                                <label>Alert Quantity </label>
-                                                <input type="number" class="form-control"
-                                                    placeholder="Enter Alert Quantity" name="name">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-12">
-                                            <div class="input-block mb-3">
-                                                <label>Tax</label>
-                                                <select class="select">
-                                                    <option>Select Tax</option>
-                                                    <option>IVA - (21%)</option>
-                                                    <option>IRPF - (-15%)</option>
-                                                    <option>PDV - (20%)</option>
+
+                                        <div class="col-lg-2 col-md-6">
+                                            <div class="input-block">
+                                                <label>Primary UOM</label>
+                                                <select class="form-control select">
+                                                    <option>Kg</option>
+                                                    <option>Pack</option>
+                                                    <option>Pcs</option>
                                                 </select>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="form-group-item">
-                                    <div class="row">
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-12 description-box">
-                                            <div class="input-block mb-3" id="summernote_container">
-                                                <label class="form-control-label">Product Descriptions</label>
-                                                <textarea class="summernote form-control"
-                                                    placeholder="Type your message"></textarea>
+
+                                        <div class="col-lg-2 col-md-6">
+                                            <div class="input-block">
+                                                <label>Apply Tax</label>
+                                                <div
+                                                    class="form-control d-flex align-items-center justify-content-between radio-container">
+                                                    <label class="radio-label mb-0">
+                                                        <input type="radio" name="applyTax" checked>
+                                                        <span>Yes</span>
+                                                    </label>
+                                                    <label class="radio-label mb-0">
+                                                        <input type="radio" name="applyTax">
+                                                        <span>No</span>
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-12">
-                                            <div class="input-block mb-3">
-                                                <label>Product Image</label>
-                                                <div class="input-block mb-3 service-upload mb-0">
-                                                    <span><img src="assets/img/icons/drop-icon.svg" alt="upload"></span>
-                                                    <h6 class="drop-browse align-center">
-                                                        Drop your files here or<span
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card border mb-4 shadow-sm rounded-4">
+                                <div class="card-body">
+                                    <!-- Unit Conversion + Product Image -->
+                                    <div class="row g-4 mb-4">
+                                        <div class="col-lg-6">
+                                            <h5 class="fw-bold mb-3">Unit Conversion</h5>
+                                            <div class="card border shadow-sm rounded-4 p-3 custom-card">
+                                                <div class="row align-items-center g-3">
+                                                    <div class="col-md-5 ">
+                                                        <div class="input-block">
+                                                            <label class="form-label fw-semibold mt-4">Unit</label>
+                                                            <select class="select">
+                                                                <option>1 Box</option>
+                                                                <option>1 Packet</option>
+                                                                <option>1 Set</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2 text-center fw-bold fs-4 mt-5">=</div>
+                                                    <div class="col-md-5">
+                                                        <div class="input-block">
+                                                            <label class="form-label fw-semibold mt-4">Quantity</label>
+                                                            <select class="select">
+                                                                <option>12 Pcs</option>
+                                                                <option>6 Pcs</option>
+                                                                <option>24 Pcs</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="input-block">
+                                                <label class="form-label fw-semibold mb-2">Product Image</label>
+                                                <div class="service-upload text-center p-4 border rounded-4 bg-light">
+                                                    <span><img src="../assets/img/icons/drop-icon.svg" alt="upload"
+                                                            style="width:40px;"></span>
+                                                    <h6 class="drop-browse align-center mt-2">
+                                                        Drop your files here or <span
                                                             class="text-primary ms-1">browse</span>
                                                     </h6>
-                                                    <p class="text-muted">Maximum size: 50MB</p>
-                                                    <input type="file" multiple="" id="image_sign">
+                                                    <p class="text-muted small mb-2">Maximum size: 50MB</p>
+                                                    <input type="file" multiple id="image_sign">
                                                     <div id="frames"></div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
+                                    <!-- Product Description -->
+                                    <div class="row mb-4">
+                                        <div class="col-lg-12">
+                                            <div class="input-block">
+                                                <label class="form-label fw-semibold mb-2">Product Description</label>
+                                                <textarea class="form-control mb-3" rows="7"
+                                                    placeholder="Enter product description..."></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <form action="product-list.html" class="text-end">
-                                    <button type="reset" class="btn btn-primary cancel me-2">
-                                        Cancel
-                                    </button>
-                                    <button type="submit" class="btn btn-primary">
-                                        Add Item
-                                    </button>
-                                </form>
                             </div>
+
+                            <!-- Purchase & Selling Price -->
+                            <div class="card border mb-4 shadow-sm rounded-4">
+                                <div class="card-body">
+                                    <div class="row g-4 mb-4">
+
+                                        <!-- Purchase Price -->
+                                        <div class="col-12">
+                                            <div class="card border shadow-sm rounded-4 p-3 h-100">
+                                                <h5 class="fw-bold mb-3">Purchase Price</h5>
+                                                <div id="purchaseContainer">
+                                                    <div class="row g-2 align-items-center purchase-row">
+                                                        <!-- Unit -->
+                                                        <div class="col-md-5 col-sm-12">
+                                                            <div class="input-block mb-3">
+                                                                <select class="form-select select">
+                                                                    <option value="">Select Unit</option>
+                                                                    <option>Box</option>
+                                                                    <option>Packet</option>
+                                                                    <option>Piece</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Price -->
+                                                        <div class="col-md-5 col-sm-12">
+                                                            <div class="input-block mb-3">
+                                                                <input type="number" class="form-control mb-3"
+                                                                    placeholder="Enter Price">
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Buttons -->
+                                                        <div
+                                                            class="col-md-2 col-sm-12 d-flex gap-2 align-items-center justify-content-center">
+                                                            <div class="input-block mb-3">
+                                                                <button type="button" class="btn btn-primary">Add
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <!-- Selling Price -->
+                                        <div class="col-md-9">
+                                            <div class="card border shadow-sm rounded-4 p-3 h-100">
+                                                <h5 class="fw-bold mb-3">Selling Price</h5>
+
+                                                <div id="sellingContainer">
+                                                    <!-- Static Row 1 -->
+                                                    <div class="row g-2 align-items-center selling-row mb-2">
+                                                        <div class="col-md-2">
+                                                            <div class="input-block mb-3">
+                                                                <input type="number" class="form-control"
+                                                                    placeholder="Qty" value="10">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="input-block mb-3">
+                                                                <select class="form-select select">
+                                                                    <option value="box" selected>Box</option>
+                                                                    <option value="pack">Pack</option>
+                                                                    <option value="pcs">PCS</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="input-block mb-3">
+                                                                <input type="number" class="form-control"
+                                                                    placeholder="Price" value="500">
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="col-md-2 d-flex gap-2 align-items-center justify-content-center mb-3">
+                                                            <button type="button"
+                                                                class="btn btn-success btn-add btn-square">
+                                                                <i class="bi bi-plus-lg"></i>
+                                                            </button>
+                                                            <button type="button"
+                                                                class="btn btn-danger btn-remove btn-square">
+                                                                <i class="bi bi-dash-lg"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Static Row 2 -->
+                                                    <div class="row g-2 align-items-center selling-row mb-2">
+                                                        <div class="col-md-2">
+                                                            <div class="input-block mb-3">
+                                                                <input type="number" class="form-control"
+                                                                    placeholder="Qty" value="20">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="input-block mb-3">
+                                                                <select class="form-select select">
+                                                                    <option value="pack" selected>Pack</option>
+                                                                    <option value="box">Box</option>
+                                                                    <option value="pcs">PCS</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="input-block mb-3">
+                                                                <input type="number" class="form-control"
+                                                                    placeholder="Price" value="900">
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="col-md-2 d-flex gap-2 align-items-center justify-content-center mb-3">
+                                                            <button type="button"
+                                                                class="btn btn-success btn-add btn-square">
+                                                                <i class="bi bi-plus-lg"></i>
+                                                            </button>
+                                                            <button type="button"
+                                                                class="btn btn-danger btn-remove btn-square">
+                                                                <i class="bi bi-dash-lg"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Static Row 3 -->
+                                                    <div class="row g-2 align-items-center selling-row mb-2">
+                                                        <div class="col-md-2">
+                                                            <div class="input-block mb-3">
+                                                                <input type="number" class="form-control"
+                                                                    placeholder="Qty" value="5">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="input-block mb-3">
+                                                                <select class="form-select select">
+                                                                    <option value="pcs" selected>PCS</option>
+                                                                    <option value="box">Box</option>
+                                                                    <option value="pack">Pack</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="input-block mb-3">
+                                                                <input type="number" class="form-control"
+                                                                    placeholder="Price" value="200">
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="col-md-2 d-flex gap-2 align-items-center justify-content-center mb-3">
+                                                            <button type="button"
+                                                                class="btn btn-success btn-add btn-square">
+                                                                <i class="bi bi-plus-lg"></i>
+                                                            </button>
+                                                            <button type="button"
+                                                                class="btn btn-danger btn-remove btn-square">
+                                                                <i class="bi bi-dash-lg"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card border mb-4 shadow-sm rounded-4">
+                                <div class="card-body">
+                                    <div class="accordion mt-1" id="transportAccordion">
+                                        <div class="accordion-item border shadow-sm">
+                                            <h2 class="accordion-header" id="headingTransport">
+                                                <button class="accordion-button fw-bold bg-light" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapseTransport"
+                                                    aria-expanded="true" aria-controls="collapseTransport">
+                                                    <h5 class="mb-0">Transport Weight Details</h5>
+                                                </button>
+                                            </h2>
+                                            <div id="collapseTransport" class="accordion-collapse collapse show"
+                                                aria-labelledby="headingTransport" data-bs-parent="#transportAccordion">
+                                                <div class="accordion-body">
+                                                    <div class="row g-3">
+
+
+
+
+                                                        <div class="card border mb-4 mt-2 shadow-sm rounded-4">
+                                                            <div class="card-body">
+                                                                <h5 class="mb-3 fw-bold">Box</h5>
+                                                                <div class="row g-3">
+
+                                                                    <!-- Product Quantity -->
+                                                                    <div class="col-md-6">
+                                                                        <div class="input-block">
+                                                                            <label
+                                                                                class="form-label fw-semibold">Product
+                                                                                Qty</label>
+                                                                            <div class="d-flex gap-2">
+                                                                                <input type="number"
+                                                                                    class="form-control w-50"
+                                                                                    placeholder="Enter quantity">
+                                                                                <select class="form-select w-50">
+                                                                                    <option value="pcs">Pcs</option>
+                                                                                    <option value="box">Box</option>
+                                                                                    <option value="set">Set</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- Product Weight -->
+                                                                    <div class="col-md-6">
+                                                                        <div class="input-block">
+                                                                            <label
+                                                                                class="form-label fw-semibold">Product
+                                                                                Weight (Net)</label>
+                                                                            <div class="d-flex gap-2">
+                                                                                <input type="number"
+                                                                                    class="form-control w-50"
+                                                                                    placeholder="Enter weight">
+                                                                                <select class="form-select w-50">
+                                                                                    <option value="kg">Kg</option>
+                                                                                    <option value="g">Gram</option>
+                                                                                    <option value="mg">Mg</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div> <!-- row -->
+                                                            </div> <!-- card-body -->
+                                                        </div>
+
+                                                        <br>
+                                                        <!-- Box Size -->
+                                                        <div class="col-md-6">
+                                                            <div class="input-block">
+                                                                <label class="form-label fw-semibold">Box Size </label>
+                                                                <div class="d-flex align-items-center gap-2">
+                                                                    <input type="number" class="form-control"
+                                                                        placeholder="L">
+                                                                    <span class="fw-bold">×</span>
+                                                                    <input type="number" class="form-control"
+                                                                        placeholder="B">
+                                                                    <span class="fw-bold">×</span>
+                                                                    <input type="number" class="form-control"
+                                                                        placeholder="H">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Box Weight -->
+                                                        <div class="col-md-6">
+                                                            <div class="input-block">
+                                                                <label class="form-label fw-semibold">Box Weight</label>
+                                                                <div class="d-flex gap-2">
+                                                                    <input type="number" class="form-control w-50"
+                                                                        placeholder="Enter weight">
+                                                                    <select class="form-select w-50">
+                                                                        <option value="kg">Kg</option>
+                                                                        <option value="pcs">Pcs</option>
+                                                                        <option value="g">Gram</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div> <!-- row -->
+                                                </div> <!-- accordion-body -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <br>
+
+
+
+                            <!-- Action Buttons -->
+                            <div class="text-end">
+                                <button type="reset" class="btn btn-outline-secondary me-2">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Add Item</button>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- /Page Wrapper -->
-    </div>
-    <!-- /Main Wrapper -->
 
-    <!-- jQuery -->
-    <script src="../assets/js/jquery-3.7.1.min.js"></script>
+            <!-- jQuery -->
+            <script src="../assets/js/jquery-3.7.1.min.js"></script>
 
-    <!-- Bootstrap Core JS -->
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Datatable JS -->
-    <script src="../assets/plugins/datatables/datatables.min.js"></script>
 
-    <!-- select CSS -->
-    <script src="../assets/plugins/select2/js/select2.min.js"></script>
 
-    <!-- Slimscroll JS -->
-    <script src="../assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+            <!-- Bootstrap Core JS -->
+            <script src="../assets/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Datepicker Core JS -->
-    <script src="../assets/plugins/moment/moment.min.js"></script>
-    <script src="../assets/js/bootstrap-datetimepicker.min.js"></script>
+            <!-- Feather Icon JS -->
+            <script src="../assets/js/feather.min.js"></script>
 
-    <!-- multiselect JS -->
-    <script src="../assets/js/jquery-ui.min.js"></script>
+            <!-- Slimscroll JS -->
+            <script src="../assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-    <!-- Theme Settings JS -->
-    <script src="../assets/js/theme-settings.js"></script>
-    <script src="../assets/js/greedynav.js"></script>
+            <!-- Select2 JS -->
+            <script src="../assets/plugins/select2/js/select2.min.js"></script>
 
-    <!-- Custom JS -->
-    <script src="../assets/js/script.js"></script>
+            <!-- Moment JS -->
+            <script src="../assets/plugins/moment/moment.min.js"></script>
+
+            <!-- Summernote JS -->
+            <script src="../assets/plugins/summernote/summernote-lite.min.js"></script>
+
+            <!-- Bootstrap Icons -->
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+            <!-- Custom JS -->
+            <script src="../assets/js/script.js"></script>
+
+            <script>
+                $(document).ready(function () {
+
+                    // Generic add row function
+                    function addRow(containerSelector, rowClass, clearInputs = true) {
+                        let $container = $(containerSelector);
+                        let $lastRow = $container.find(rowClass + ':last');
+                        let $newRow = $lastRow.clone();
+
+                        if (clearInputs) {
+                            $newRow.find('input, select').val('');
+                        }
+
+                        $container.append($newRow);
+                    }
+
+                    // ---------- Selling Price ----------
+                    $('#sellingContainer').on('click', '.btn-add', function () {
+                        addRow('#sellingContainer', '.selling-row', true);
+                    });
+
+                    $('#sellingContainer').on('click', '.btn-remove', function () {
+                        if ($('#sellingContainer .selling-row').length > 1) {
+                            $(this).closest('.selling-row').remove();
+                        }
+                    });
+
+                });
+            </script>
+
+
+
+
 
 </body>
 

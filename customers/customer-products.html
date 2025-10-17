@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Kanakku - Product Price Update</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../assets/img/logo-new.jpg">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+
+    <!-- Font family -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="../assets/plugins/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../assets/plugins/fontawesome/css/all.min.css">
+
+    <!-- Feather CSS -->
+    <link rel="stylesheet" href="../assets/plugins/feather/feather.css">
+
+    <!-- Datepicker CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap-datetimepicker.min.css">
+
+    <!-- Datatables CSS -->
+    <link rel="stylesheet" href="../assets/plugins/datatables/datatables.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <!-- Layout JS -->
+    <script src="../assets/js/layout.js"></script>
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #dee2e6;
+
+        }
+
+        th,
+        td {
+            border-bottom: 1px solid #dee2e6;
+            /* underline between rows */
+            border-right: 1px solid #dee2e6;
+            text-align: center;
+            vertical-align: middle;
+            padding: 12px;
+        }
+
+        th:last-child,
+        td:last-child {
+            border-right: none;
+        }
+
+        th {
+            background-color: #e31e25;
+            color: white !important;
+            font-size: 15px;
+            text-transform: uppercase;
+            border-top: 1px solid #dee2e6;
+        }
+
+        tbody {
+            background-color: white !important;
+        }
+
+        tbody tr:hover {
+            transition: 0.2s ease-in-out;
+        }
+
+
+        .price-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .readonly-price {
+            width: 70px;
+            height: 40px;
+            text-align: center;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .new-price {
+            width: 80px;
+            height: 40px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .btn-set {
+            background-color: #eb000870;
+            padding: 4px 10px;
+            font-size: 13px;
+            height: 40px;
+        }
+
+        .form-check-input {
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+        }
+
+        .form-check-label {
+            cursor: pointer;
+            color: #333;
+            font-size: 15px;
+        }
+
+        .btn-success:hover {
+            transform: scale(1.05);
+        }
+
+        .content-page-header {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e9ecef;
+            background: #fff;
+            border-radius: 6px;
+        }
+
+        #customerNameDisplay {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-size: 15px;
+        }
+
+        .form-check-input:checked {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        @media (max-width: 767.98px) {
+            .content-page-header .row>div {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <!-- Header -->
+        <div class="header header-one">
+
+            <a href="index.html"
+                class="d-inline-flex d-sm-inline-flex align-items-center d-md-inline-flex d-lg-none align-items-center device-logo">
+                <img src="../assets/img/logo-new.jpg" class="img-fluid logo2" alt="Logo">
+            </a>
+            <div class="main-logo d-inline float-start d-lg-flex align-items-center d-none d-sm-none d-md-none">
+                <div class="logo-white">
+                    <a href="index.html">
+                        <img src="assets/img/logo-full-white.png" class="img-fluid logo-blue" alt="Logo">
+                    </a>
+                    <a href="index.html">
+                        <img src="assets/img/logo-small-white.png" class="img-fluid logo-small" alt="Logo">
+                    </a>
+                </div>
+                <div class="logo-color">
+                    <a href="index.html">
+                        <img src="../assets/img/logo-new.jpg" class="img-fluid logo-blue" alt="Logo">
+                    </a>
+                    <a href="index.html">
+                        <img src="../assets/img/logo-new.jpg" class="img-fluid logo-small" alt="Logo">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sidebar Toggle -->
+            <a href="javascript:void(0);" id="toggle_btn">
+                <span class="toggle-bars">
+                    <span class="bar-icons"></span>
+                    <span class="bar-icons"></span>
+                    <span class="bar-icons"></span>
+                    <span class="bar-icons"></span>
+                </span>
+            </a>
+            <!-- /Sidebar Toggle -->
+
+
+            <!-- Mobile Menu Toggle -->
+            <a class="mobile_btn" id="mobile_btn">
+                <i class="fas fa-bars"></i>
+            </a>
+            <!-- /Mobile Menu Toggle -->
+
+            <!-- Header Menu -->
+            <ul class="nav nav-tabs user-menu">
+
+
+                <li class="nav-item  has-arrow dropdown-heads ">
+                    <a href="javascript:void(0);" class="toggle-switch">
+                        <i class="fe fe-moon"></i>
+                    </a>
+                </li>
+                <li class="nav-item dropdown  flag-nav dropdown-heads">
+                    <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button">
+                        <i class="fe fe-bell"></i> <span class="badge rounded-pill"></span>
+                    </a>
+                    <div class="dropdown-menu notifications">
+                        <div class="topnav-dropdown-header">
+                            <div class="notification-title">Notifications <a href="notifications.html">View all</a>
+                            </div>
+                            <a href="javascript:void(0)" class="clear-noti d-flex align-items-center">Mark all as read
+                                <i class="fe fe-check-circle"></i></a>
+                        </div>
+                        <div class="noti-content">
+                            <ul class="notification-list">
+                                <li class="notification-message">
+                                    <a href="profile.html">
+                                        <div class="d-flex">
+                                            <span class="avatar avatar-md active">
+                                                <img class="avatar-img rounded-circle" alt="avatar-img"
+                                                    src="assets/img/profiles/avatar-02.jpg">
+                                            </span>
+                                            <div class="media-body">
+                                                <p class="noti-details"><span class="noti-title">Lex Murphy</span>
+                                                    requested access to <span class="noti-title">UNIX directory tree
+                                                        hierarchy</span></p>
+                                                <div class="notification-btn">
+                                                    <span class="btn btn-primary">Accept</span>
+                                                    <span class="btn btn-outline-primary">Reject</span>
+                                                </div>
+                                                <p class="noti-time"><span class="notification-time">Today at 9:42
+                                                        AM</span></p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="profile.html">
+                                        <div class="d-flex">
+                                            <span class="avatar avatar-md active">
+                                                <img class="avatar-img rounded-circle" alt="avatar-img"
+                                                    src="assets/img/profiles/avatar-10.jpg">
+                                            </span>
+                                            <div class="media-body">
+                                                <p class="noti-details"><span class="noti-title">Ray Arnold</span> left
+                                                    6 comments <span class="noti-title">on Isla Nublar SOC2 compliance
+                                                        report</span></p>
+                                                <p class="noti-time"><span class="notification-time">Yesterday at 11:42
+                                                        PM</span></p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="profile.html">
+                                        <div class="d-flex">
+                                            <span class="avatar avatar-md">
+                                                <img class="avatar-img rounded-circle" alt="avatar-img"
+                                                    src="assets/img/profiles/avatar-13.jpg">
+                                            </span>
+                                            <div class="media-body">
+                                                <p class="noti-details"><span class="noti-title">Dennis Nedry</span>
+                                                    commented on <span class="noti-title"> Isla Nublar SOC2 compliance
+                                                        report</span></p>
+                                                <blockquote>
+                                                    “Oh, I finished de-bugging the phones, but the system's compiling
+                                                    for eighteen minutes, or twenty. So, some minor systems may go on
+                                                    and off for a while.”
+                                                </blockquote>
+                                                <p class="noti-time"><span class="notification-time">Yesterday at 5:42
+                                                        PM</span></p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="profile.html">
+                                        <div class="d-flex">
+                                            <span class="avatar avatar-md">
+                                                <img class="avatar-img rounded-circle" alt="avatar-img"
+                                                    src="assets/img/profiles/avatar-05.jpg">
+                                            </span>
+                                            <div class="media-body">
+                                                <p class="noti-details"><span class="noti-title">John Hammond</span>
+                                                    created <span class="noti-title">Isla Nublar SOC2 compliance
+                                                        report</span></p>
+                                                <p class="noti-time"><span class="notification-time">Last Wednesday at
+                                                        11:15 AM</span></p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="topnav-dropdown-footer">
+                            <a href="#">Clear All</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item  has-arrow dropdown-heads ">
+                    <a href="javascript:void(0);" class="win-maximize">
+                        <i class="fe fe-maximize"></i>
+                    </a>
+                </li>
+                <!-- User Menu -->
+                <li class="nav-item dropdown">
+                    <a href="javascript:void(0)" class="user-link  nav-link" data-bs-toggle="dropdown">
+                        <span class="user-img">
+                            <img src="../assets/img/avatar-profile.jpg" alt="img" class="profilesidebar">
+                            <span class="animate-circle"></span>
+                        </span>
+                        <span class="user-content">
+                            <span class="user-details">Admin</span>
+                            <span class="user-name">John Smith</span>
+                        </span>
+                    </a>
+                    <div class="dropdown-menu menu-drop-user">
+                        <div class="profilemenu">
+                            <div class="subscription-menu">
+                                <ul>
+                                    <li>
+                                        <a class="dropdown-item" href="profile.html">Profile</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="settings.html">Settings</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="subscription-logout">
+                                <ul>
+                                    <li class="pb-0">
+                                        <a class="dropdown-item" href="login.html">Log Out</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <!-- /User Menu -->
+
+            </ul>
+
+            <!-- /Header Menu -->
+
+        </div>
+        <!-- /Header -->
+
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+
+                    <ul class="sidebar-vertical">
+                        <!-- Main -->
+                        <li class="menu-title"><span>Main</span></li>
+                        <li>
+                            <a href="../index.html"><i class="fe fe-home"></i>
+                                <span>Dashboard</span></a>
+                        </li>
+
+                        <!-- /Main -->
+
+
+
+                        <!-- Customers -->
+                        <li class="menu-title"><span>Customers</span></li>
+                        <li>
+                            <a href="../customers/customers.html"><i class="fe fe-users"></i>
+                                <span>Customers</span></a>
+                        </li>
+                        <li>
+                            <a href="../vendors/vendors.html"><i class="fe fe-user"></i> <span>Vendors</span></a>
+                        </li>
+                        <!-- /Customers -->
+
+                        <!-- Inventory -->
+                        <li class="menu-title"><span>Inventory</span></li>
+                        <li class="submenu">
+                            <a href="#"><i class="fe fe-package"></i> <span> Products</span> <span
+                                    class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="../products/product-list.html">Product List</a></li>
+                                <li><a href="../products/category.html">Category</a></li>
+
+                                <li><a href="../products/units.html">Units</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="../inventory/inventory.html"><i class="fe fe-user"></i> <span>Inventory</span></a>
+                        </li>
+                        <!-- /Inventory -->
+
+
+
+                        <!-- Purchases -->
+
+
+                        <!-- Purchases -->
+                        <li class="menu-title"><span>Purchases</span></li>
+
+                        <li>
+                            <a href="../purchase/purchase-order.html"><i class="fe fe-shopping-bag"></i> <span>Purchase
+                                    Orders</span></a>
+                        </li>
+
+                        <!-- User Management -->
+                        <li class="menu-title"><span>User Management</span></li>
+                        <li>
+                            <a href="../users/users.html"><i class="fe fe-user"></i> <span>Users</span></a>
+                        </li>
+
+
+
+
+
+
+
+                        <li>
+                            <a href="login.html"><i class="fe fe-power"></i> <span>Logout</span></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <!-- /Sidebar -->
+
+        <!-- Page Content -->
+        <div class="page-wrapper">
+            <div class="content container-fluid">
+
+                <div class="page-header">
+                    <div class="content-page-header">
+                        <div class="container-fluid">
+                            <div class="row align-items-center">
+
+                                <!-- Column 1: Title -->
+                                <div class="col-lg-4 col-md-4 col-sm-12 mb-2 mb-lg-0">
+                                    <h5 class="mb-0 fw-bold">Customer Products</h5>
+                                </div>
+
+                                <!-- Column 2: Customer Name -->
+                                <div class="col-lg-4 col-md-4 col-sm-12 d-flex align-items-center gap-2 mb-2 mb-lg-0">
+                                    <h5 class="mb-0 fw-semibold">Customer Name </h5>
+                                    <span class="fw-bold text-dark fs-4" id="customerNameDisplay">John Doe</span>
+                                </div>
+
+                                <!-- Column 3: All Price -->
+                                <div
+                                    class="col-lg-4 col-md-4 col-sm-12 d-flex justify-content-lg-end justify-content-start">
+                                    <div class="form-check d-flex align-items-center gap-2">
+                                        <input class="form-check-input" type="checkbox" id="showPriceCheckbox">
+                                        <label class="form-check-label fw-semibold" for="showPriceCheckbox">All
+                                            Price</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+
+                <table id="productTable" class="table table-bordered table-striped align-middle">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>10 BOX</th>
+                            <th>20 PACK</th>
+                            <th>5 PCS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>MIXTURE</td>
+                            <td>SNACKS</td>
+                            <td>
+                                <div class="price-box">
+                                    <input type="text" class="readonly-price" value="299" readonly>
+                                    <input type="text" class="new-price" placeholder="Set price">
+                                    <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="price-box">
+                                    <input type="text" class="readonly-price" value="277" readonly>
+                                    <input type="text" class="new-price" placeholder="Set price">
+                                    <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="price-box">
+                                    <input type="text" class="readonly-price" value="274" readonly>
+                                    <input type="text" class="new-price" placeholder="Set price">
+                                    <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>HALWA</td>
+                            <td>SWEETS</td>
+                            <td>
+                                <div class="price-box">
+                                    <input type="text" class="readonly-price" value="299" readonly>
+                                    <input type="text" class="new-price" placeholder="Set price">
+                                    <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="price-box">
+                                    <input type="text" class="readonly-price" value="277" readonly>
+                                    <input type="text" class="new-price" placeholder="Set price">
+                                    <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="price-box">
+                                    <input type="text" class="readonly-price" value="274" readonly>
+                                    <input type="text" class="new-price" placeholder="Set price">
+                                    <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>IDLY RICE</td>
+                            <td>GRAINS</td>
+                            <td>
+                                <div class="price-box">
+                                    <input type="text" class="readonly-price" value="299" readonly>
+                                    <input type="text" class="new-price" placeholder="Set price">
+                                    <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="price-box">
+                                    <input type="text" class="readonly-price" value="277" readonly>
+                                    <input type="text" class="new-price" placeholder="Set price">
+                                    <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="price-box">
+                                    <input type="text" class="readonly-price" value="274" readonly>
+                                    <input type="text" class="new-price" placeholder="Set price">
+                                    <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Add more rows -->
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <!-- /Page Content -->
+    </div>
+
+    <!-- jQuery -->
+    <script src="../assets/js/jquery-3.7.1.min.js"></script>
+
+    <!-- Bootstrap Core JS -->
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Datatable JS -->
+    <script src="../assets/plugins/datatables/datatables.min.js"></script>
+
+    <!-- Select2 JS -->
+    <script src="../assets/plugins/select2/js/select2.min.js"></script>
+
+    <!-- Slimscroll JS -->
+    <script src="../assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Datepicker JS -->
+    <script src="../assets/plugins/moment/moment.min.js"></script>
+    <script src="../assets/js/bootstrap-datetimepicker.min.js"></script>
+
+    <!-- Theme & Custom JS -->
+    <script src="../assets/js/theme-settings.js"></script>
+    <script src="../assets/js/greedynav.js"></script>
+    <script src="../assets/js/script.js"></script>
+
+    <script>
+        function setPrice(btn) {
+            const box = btn.closest(".price-box");
+            const readonlyInput = box.querySelector(".readonly-price");
+            const newInput = box.querySelector(".new-price");
+
+            if (newInput.value.trim() !== "") {
+                readonlyInput.value = newInput.value.trim();
+                newInput.value = "";
+            } else {
+                alert("Please enter a new price before setting.");
+            }
+        }
+    </script>
+</body>
+
+</html>
