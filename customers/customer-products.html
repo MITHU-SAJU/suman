@@ -10,6 +10,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/select2.min.css">
 
     <!-- Font family -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -140,6 +141,23 @@
         .form-check-input:checked {
             background-color: #dc3545;
             border-color: #dc3545;
+        }
+
+        .row-check,
+        #selectAll {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            margin-top: 0.5 rem !important;
+            background-color: #dc3545 !important;
+        }
+
+        .red-check {
+            width: 18px;
+            height: 18px;
+            accent-color: #dc3545;
+            /* Modern browsers support this */
+            cursor: pointer;
         }
 
         @media (max-width: 767.98px) {
@@ -408,6 +426,21 @@
                                     Orders</span></a>
                         </li>
 
+                        <li>
+                            <a href="../orders/order-enquiry.html"><i class="fe fe-file"></i> <span>Order
+                                    Enquiry</span></a>
+                        </li>
+
+                        <li>
+                            <a href="../orders/performa-invoice.html"><i class="fe fe-file-text"></i> <span>Proforma
+                                    Invoice</span></a>
+                        </li>
+
+                        <li>
+                            <a href="../orders/performa-invoice.html"><i class="fe fe-file-text"></i> <span>Proforma
+                                    Invoice</span></a>
+                        </li>
+
                         <!-- User Management -->
                         <li class="menu-title"><span>User Management</span></li>
                         <li>
@@ -463,148 +496,186 @@
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
 
 
 
-                <table id="productTable" class="table table-bordered table-striped align-middle">
-                    <thead>
-                        <tr>
-                            <th>Product Name</th>
-                            <th>Category</th>
-                            <th>10 BOX</th>
-                            <th>20 PACK</th>
-                            <th>5 PCS</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>MIXTURE</td>
-                            <td>SNACKS</td>
-                            <td>
-                                <div class="price-box">
-                                    <input type="text" class="readonly-price" value="299" readonly>
-                                    <input type="text" class="new-price" placeholder="Set price">
-                                    <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
+                <div class="filter-container mb-3">
+                    <div class="card p-3 shadow-sm border-0">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="categoryFilter" class="form-label">Filter by Category</label>
+                                <select id="categoryFilter" class="select">
+                                    <option value="">All Categories</option>
+                                    <option value="SNACKS">SNACKS</option>
+                                    <option value="SWEETS">SWEETS</option>
+                                    <option value="GRAINS">GRAINS</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="input-block mb-3">
+                                    <label for="productNameFilter" class="form-label">Filter by Product Name</label>
+                                    <input type="text" class="form-control" placeholder="Search Product Name">
                                 </div>
-                            </td>
-                            <td>
-                                <div class="price-box">
-                                    <input type="text" class="readonly-price" value="277" readonly>
-                                    <input type="text" class="new-price" placeholder="Set price">
-                                    <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
+                            </div>
+                            <div class="col-md-4  d-flex align-items-end">
+                                <div class="input-block mb-2">
+                                    <button class="btn btn-primary mb-4  rounded-3 shadow"
+                                        onclick="applyFilters()">Apply
+                                        Filters</button>
                                 </div>
-                            </td>
-                            <td>
-                                <div class="price-box">
-                                    <input type="text" class="readonly-price" value="274" readonly>
-                                    <input type="text" class="new-price" placeholder="Set price">
-                                    <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
-                                </div>
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
+                    </div>
 
-                        <tr>
-                            <td>HALWA</td>
-                            <td>SWEETS</td>
-                            <td>
-                                <div class="price-box">
-                                    <input type="text" class="readonly-price" value="299" readonly>
-                                    <input type="text" class="new-price" placeholder="Set price">
-                                    <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="price-box">
-                                    <input type="text" class="readonly-price" value="277" readonly>
-                                    <input type="text" class="new-price" placeholder="Set price">
-                                    <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="price-box">
-                                    <input type="text" class="readonly-price" value="274" readonly>
-                                    <input type="text" class="new-price" placeholder="Set price">
-                                    <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
-                                </div>
-                            </td>
-                        </tr>
 
-                        <tr>
-                            <td>IDLY RICE</td>
-                            <td>GRAINS</td>
-                            <td>
-                                <div class="price-box">
-                                    <input type="text" class="readonly-price" value="299" readonly>
-                                    <input type="text" class="new-price" placeholder="Set price">
-                                    <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="price-box">
-                                    <input type="text" class="readonly-price" value="277" readonly>
-                                    <input type="text" class="new-price" placeholder="Set price">
-                                    <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="price-box">
-                                    <input type="text" class="readonly-price" value="274" readonly>
-                                    <input type="text" class="new-price" placeholder="Set price">
-                                    <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <!-- Add more rows -->
-                    </tbody>
-                </table>
+                    <table id="productTable" class="table table-bordered table-striped align-middle">
+                        <thead>
+                            <tr>
+                                <th style="width: 50px;">
+                                    <input type="checkbox" id="selectAll" class="red-check" checked>
+                                </th>
+                                <th>Product Name</th>
+                                <th>Category</th>
+                                <th>10 BOX</th>
+                                <th>20 PACK</th>
+                                <th>5 PCS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" class="red-check" checked></td>
+                                <td>MIXTURE</td>
+                                <td>SNACKS</td>
+                                <td>
+                                    <div class="price-box">
+                                        <input type="text" class="readonly-price" value="299" readonly>
+                                        <input type="text" class="new-price" placeholder="Set price">
+                                        <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="price-box">
+                                        <input type="text" class="readonly-price" value="277" readonly>
+                                        <input type="text" class="new-price" placeholder="Set price">
+                                        <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="price-box">
+                                        <input type="text" class="readonly-price" value="274" readonly>
+                                        <input type="text" class="new-price" placeholder="Set price">
+                                        <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
+                                    </div>
+                                </td>
+                            </tr>
 
+                            <tr>
+                                <td><input type="checkbox" class="red-check" checked></td>
+                                <td>HALWA</td>
+                                <td>SWEETS</td>
+                                <td>
+                                    <div class="price-box">
+                                        <input type="text" class="readonly-price" value="299" readonly>
+                                        <input type="text" class="new-price" placeholder="Set price">
+                                        <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="price-box">
+                                        <input type="text" class="readonly-price" value="277" readonly>
+                                        <input type="text" class="new-price" placeholder="Set price">
+                                        <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="price-box">
+                                        <input type="text" class="readonly-price" value="274" readonly>
+                                        <input type="text" class="new-price" placeholder="Set price">
+                                        <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><input type="checkbox" class="red-check" checked></td>
+                                <td>IDLY RICE</td>
+                                <td>GRAINS</td>
+                                <td>
+                                    <div class="price-box">
+                                        <input type="text" class="readonly-price" value="299" readonly>
+                                        <input type="text" class="new-price" placeholder="Set price">
+                                        <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="price-box">
+                                        <input type="text" class="readonly-price" value="277" readonly>
+                                        <input type="text" class="new-price" placeholder="Set price">
+                                        <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="price-box">
+                                        <input type="text" class="readonly-price" value="274" readonly>
+                                        <input type="text" class="new-price" placeholder="Set price">
+                                        <button class="btn btn-set btn-sm" onclick="setPrice(this)">Set</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
             </div>
+            <!-- /Page Content -->
         </div>
-        <!-- /Page Content -->
-    </div>
 
-    <!-- jQuery -->
-    <script src="../assets/js/jquery-3.7.1.min.js"></script>
+        <!-- jQuery -->
+        <script src="../assets/js/jquery-3.7.1.min.js"></script>
 
-    <!-- Bootstrap Core JS -->
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap Core JS -->
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Datatable JS -->
-    <script src="../assets/plugins/datatables/datatables.min.js"></script>
+        <!-- Datatable JS -->
+        <script src="../assets/plugins/datatables/datatables.min.js"></script>
 
-    <!-- Select2 JS -->
-    <script src="../assets/plugins/select2/js/select2.min.js"></script>
+        <!-- Select2 JS -->
+        <script src="../assets/plugins/select2/js/select2.min.js"></script>
 
-    <!-- Slimscroll JS -->
-    <script src="../assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+        <!-- Slimscroll JS -->
+        <script src="../assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-    <!-- Datepicker JS -->
-    <script src="../assets/plugins/moment/moment.min.js"></script>
-    <script src="../assets/js/bootstrap-datetimepicker.min.js"></script>
+        <!-- Datepicker JS -->
+        <script src="../assets/plugins/moment/moment.min.js"></script>
+        <script src="../assets/js/bootstrap-datetimepicker.min.js"></script>
 
-    <!-- Theme & Custom JS -->
-    <script src="../assets/js/theme-settings.js"></script>
-    <script src="../assets/js/greedynav.js"></script>
-    <script src="../assets/js/script.js"></script>
+        <!-- Theme & Custom JS -->
+        <script src="../assets/js/theme-settings.js"></script>
+        <script src="../assets/js/greedynav.js"></script>
+        <script src="../assets/js/script.js"></script>
 
-    <script>
-        function setPrice(btn) {
-            const box = btn.closest(".price-box");
-            const readonlyInput = box.querySelector(".readonly-price");
-            const newInput = box.querySelector(".new-price");
+        <script>
+            // Optional: "Select All" checkbox logic
+            document.getElementById('selectAll').addEventListener('change', function () {
+                document.querySelectorAll('.red-check').forEach(cb => cb.checked = this.checked);
+            });
+        </script>
 
-            if (newInput.value.trim() !== "") {
-                readonlyInput.value = newInput.value.trim();
-                newInput.value = "";
-            } else {
-                alert("Please enter a new price before setting.");
+        <script>
+            function setPrice(btn) {
+                const box = btn.closest(".price-box");
+                const readonlyInput = box.querySelector(".readonly-price");
+                const newInput = box.querySelector(".new-price");
+
+                if (newInput.value.trim() !== "") {
+                    readonlyInput.value = newInput.value.trim();
+                    newInput.value = "";
+                } else {
+                    alert("Please enter a new price before setting.");
+                }
             }
-        }
-    </script>
+        </script>
 </body>
 
 </html>
