@@ -359,20 +359,31 @@
                         <!-- Purchases -->
                         <li class="menu-title"><span>Purchases</span></li>
 
+
+
                         <li>
-                            <a href="../purchase/purchase-order.html"><i class="fe fe-shopping-bag"></i> <span>Purchase
-                                    Orders</span></a>
+                            <a href="./order-enquiry-list.html"><i class="fe fe-file"></i> <span>Order
+                                    Booking</span></a>
                         </li>
 
                         <li>
-                            <a href="order-enquiry.html"><i class="fe fe-file"></i> <span>Order
-                                    Enquiry</span></a>
-                        </li>
-
-                        <li>
-                            <a href="./performa-invoice.html"><i class="fe fe-file-text"></i> <span>Proforma
+                            <a href="./performa-invoice-list.html"><i class="fe fe-file-text"></i> <span>Proforma
                                     Invoice</span></a>
                         </li>
+
+                        <li class="menu-title"><span>Sales</span></li>
+                        <li>
+                            <a href="../sales/delivery-challan-list.html"><i class="fe fe-truck"></i> <span>
+                                    Goods Outwards DC</span></a>
+                        </li>
+                        <li>
+                            <a href="../sales/invoice-list.html"><i class="fe fe-file"></i> <span>Invoice</span></a>
+                        </li>
+                        <li>
+                            <a href="../sales/sales-return-list.html"><i class="fe fe-rotate-ccw"></i> <span>Sales
+                                    Return</span></a>
+                        </li>
+
 
 
                         <!-- User Management -->
@@ -405,7 +416,7 @@
                     <div class="card-body">
                         <!-- Page Header -->
                         <div class="page-header mb-4">
-                            <h4 class="fw-bold">Order Enquiry </h4>
+                            <h4 class="fw-bold">Order Booking </h4>
                         </div>
 
                         <!-- Basic Details Section -->
@@ -481,8 +492,7 @@
                             <div class="card-table">
                                 <div class="card-body">
                                     <div class="table-responsive no-pagination">
-                                        <table class="table table-center table-hover ">
-
+                                        <table class="table table-center table-hover">
                                             <thead class="thead-light">
                                                 <tr>
                                                     <th>S.No</th>
@@ -490,7 +500,7 @@
                                                     <th>Product Code</th>
                                                     <th>Weights</th>
                                                     <th>Quantity</th>
-                                                    <th>Primary Unit</th>
+                                                    <th>Price List</th> <!-- ✅ New column added -->
                                                     <th>Rate</th>
                                                     <th>Tax</th>
                                                     <th>Amount</th>
@@ -503,47 +513,63 @@
                                                     <td>Halwa</td>
                                                     <td>PRD001</td>
                                                     <td>1.2 kg</td>
-                                                    <td>5
+                                                    <td>5 pcs</td>
+                                                    <td style="text-align: center; vertical-align: middle;">
+                                                        <div style="
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      width: 120px;
+      margin: 0 auto;
+      text-align: left;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 6px 10px;
+      background-color: #f9f9f9;
+  ">
+                                                            <div
+                                                                style="display: flex; justify-content: space-between; width: 100%;">
+                                                                <span style="font-weight: 500;">Price 1:</span>
+                                                                <span>₹1200</span>
+                                                            </div>
+                                                            <div
+                                                                style="display: flex; justify-content: space-between; width: 100%;">
+                                                                <span style="font-weight: 500;">Price 2:</span>
+                                                                <span>₹1300</span>
+                                                            </div>
+                                                            <div
+                                                                style="display: flex; justify-content: space-between; width: 100%;">
+                                                                <span style="font-weight: 500;">Price 3:</span>
+                                                                <span>₹1350</span>
+                                                            </div>
+                                                        </div>
                                                     </td>
+
+
+
                                                     <td>
-                                                        pcs
+                                                        <input type="text" value="0"
+                                                            style="width: 80px; text-align: right; padding: 4px; border: 1px solid #ccc; border-radius: 4px;">
                                                     </td>
-                                                    <td>3000</td>
+
                                                     <td>5%</td>
                                                     <td>₹6,650.00</td>
-                                                    <td class="d-flex align-items-center">
-                                                        <a href="#" class="btn-action-icon me-2 text-primary">
+                                                    <td
+                                                        style="display: flex; justify-content: center; align-items:center; vertical-align: middle; gap: 8px;">
+                                                        <a href="#" class="btn-action-icon text-primary ">
                                                             <i class="fe fe-edit"></i>
                                                         </a>
                                                         <a href="#" class="btn-action-icon text-danger">
                                                             <i class="fe fe-trash-2"></i>
                                                         </a>
                                                     </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>laddu</td>
-                                                    <td>PRD002</td>
-                                                    <td>0.9 kg</td>
-                                                    <td>1
-                                                    </td>
-                                                    <td>pcs
 
-                                                    </td>
-                                                    <td>2000</td>
-                                                    <td>12%</td>
-                                                    <td>₹2,310.00</td>
-                                                    <td class="d-flex align-items-center">
-                                                        <a href="#" class="btn-action-icon me-2 text-primary">
-                                                            <i class="fe fe-edit"></i>
-                                                        </a>
-                                                        <a href="#" class="btn-action-icon text-danger">
-                                                            <i class="fe fe-trash-2"></i>
-                                                        </a>
-                                                    </td>
                                                 </tr>
+
                                             </tbody>
                                         </table>
+
 
                                         </tbody>
                                         </table>
@@ -613,6 +639,32 @@
 
 
 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        !-- Modal -->
+        <div class="modal fade" id="priceModal2" tabindex="-1">
+            <div class="modal-dialog modal-sm modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Select Price</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Price 1 <span class="badge bg-primary">₹1200</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Price 2 <span class="badge bg-success">₹1300</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Price 3 <span class="badge bg-warning">₹1350</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>

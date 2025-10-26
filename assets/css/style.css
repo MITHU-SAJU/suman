@@ -4729,6 +4729,15 @@ span.select2-container.select2-container--default.select2-container--open {
   font-size: 14px;
   color: white;
 }
+
+.card-table .card-body-custom .table th {
+  white-space: nowrap;
+  padding: 10px 25px;
+  border-bottom: 0;
+  font-weight: 500;
+  font-size: 14px;
+  color: white;
+}
 .card-table .card-body .table th:first-child {
   padding-left: 25px;
 }

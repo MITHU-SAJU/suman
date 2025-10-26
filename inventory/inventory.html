@@ -38,6 +38,62 @@
     <script src="../assets/js/layout.js"></script>
 
 </head>
+<style>
+    /* Style for table header */
+    .thead.custom-th th {
+        font-weight: 500;
+        font-size: 14px;
+        color: white;
+        background-color: #e31e25;
+        white-space: nowrap;
+        padding: 10px 25px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .thead.custom-details-th th {
+        font-weight: 500;
+        background-color: #ef3030a8;
+        font-size: 14px;
+        color: white;
+        white-space: nowrap;
+        padding: 10px 25px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #itemsAccordion td,
+    #itemsAccordion .batch-details td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    /* Make 1st, 3rd, 5th... rows white */
+    #itemsAccordion tr:nth-child(odd) td {
+        background-color: #ffffff !important;
+    }
+
+    /* Optional: make even rows light gray for contrast */
+    #itemsAccordion tr:nth-child(even) td {
+        background-color: #f8f9fa !important;
+    }
+
+    #itemsAccordion td.d-flex {
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Make first row and all odd rows white */
+    .table.table-center tbody tr:nth-child(odd) {
+        background-color: #ffffff !important;
+    }
+
+    /* Optional: keep even rows slightly gray for contrast */
+    .table.table-center tbody tr:nth-child(even) {
+        background-color: #627486 !important;
+    }
+</style>
+
 
 <body>
 
@@ -296,19 +352,30 @@
                         <!-- Purchases -->
                         <li class="menu-title"><span>Purchases</span></li>
 
+
+
                         <li>
-                            <a href="../purchase/purchase-order.html"><i class="fe fe-shopping-bag"></i> <span>Purchase
-                                    Orders</span></a>
+                            <a href="../orders/order-enquiry-list.html"><i class="fe fe-file"></i> <span>Order
+                                    Booking</span></a>
                         </li>
 
                         <li>
-                            <a href="../orders/order-enquiry.html"><i class="fe fe-file"></i> <span>Order
-                                    Enquiry</span></a>
-                        </li>
-
-                        <li>
-                            <a href="../orders/performa-invoice.html"><i class="fe fe-file-text"></i> <span>Proforma
+                            <a href="../orders/performa-invoice-list.html"><i class="fe fe-file-text"></i>
+                                <span>Proforma
                                     Invoice</span></a>
+                        </li>
+
+                        <li class="menu-title"><span>Sales</span></li>
+                        <li>
+                            <a href="../sales/delivery-challan-list.html"><i class="fe fe-truck"></i> <span>
+                                    Goods Outwards DC</span></a>
+                        </li>
+                        <li>
+                            <a href="../sales/invoice-list.html"><i class="fe fe-file"></i> <span>Invoice</span></a>
+                        </li>
+                        <li>
+                            <a href="../sales/sales-return-list.html"><i class="fe fe-rotate-ccw"></i> <span>Sales
+                                    Return</span></a>
                         </li>
 
                         <!-- User Management -->
@@ -336,69 +403,167 @@
         <!-- Page Wrapper -->
         <div class="page-wrapper">
             <div class="content container-fluid">
-
                 <!-- Page Header -->
                 <div class="page-header">
-                    <div class="content-page-header ">
+                    <div class="content-page-header">
                         <h5>Inventory</h5>
                         <div class="list-btn">
                             <ul class="filter-list">
                                 <li>
                                     <a class="btn btn-filters w-auto popup-toggle" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" data-bs-original-title="filter"><span
-                                            class="me-2"><img src="../assets/img/icons/filter-icon.svg"
-                                                alt="filter"></span>Filter </a>
+                                        data-bs-placement="bottom" title="Filter"><span class="me-2"><img
+                                                src="../assets/img/icons/filter-icon.svg" alt="filter"></span>Filter
+                                    </a>
                                 </li>
+
                             </ul>
                         </div>
                     </div>
                 </div>
                 <!-- /Page Header -->
 
-                <!-- Table -->
+                <!-- Search Filter -->
+                <div id="filter_inputs" class="card filter-card">
+                    <div class="card-body pb-0">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-3">
+                                <div class="input-block mb-3">
+                                    <label>Name</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="input-block mb-3">
+                                    <label>Email</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="input-block mb-3">
+                                    <label>Phone</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class=" card-table">
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-center table-hover datatable">
-                                        <thead class="thead-light">
+                        <div class="card-table">
+                            <div class="table-responsive">
+                                <div class="companies-table">
+                                    <table class="table table-center table-hover table-striped datatable">
+                                        <thead class="thead custom-th">
                                             <tr>
                                                 <th>#</th>
                                                 <th>Item</th>
                                                 <th>Code</th>
                                                 <th>Quantity</th>
-                                                <th>Units</th>
                                                 <th class="no-sort">Action</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="itemsAccordion">
+
+                                            <!-- Row 1 -->
                                             <tr>
                                                 <td>1</td>
                                                 <td>Jilebi</td>
                                                 <td>22222</td>
-                                                <td>2000</td>
-                                                <td>Grams</td>
+                                                <td>2000 <span>Grams</span> </td>
 
-                                                <td class="d-flex align-items-center">
-                                                    <a href="#" class="btn btn-greys bg-history-light">
-                                                        <i class="far fa-eye me-1"></i> View
-                                                    </a>
+                                                <td class="d-flex align-items-right">
+                                                    <button
+                                                        class="btn btn-success text-white btn-sm d-flex align-items-center collapsed"
+                                                        type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#batchRow1" aria-expanded="false"
+                                                        aria-controls="batchRow1" data-bs-parent="#itemsAccordion">
+                                                        View
+                                                        <i class="fa fa-chevron-down ms-2 rotate-icon"></i>
+                                                    </button>
                                                 </td>
-
                                             </tr>
+
+                                            <!-- Collapsible batch details -->
+                                            <tr class="collapse-row">
+                                                <td colspan="6" class="p-0">
+                                                    <div id="batchRow1" class="collapse batch-details">
+                                                        <table class="table table-bordered mb-0">
+                                                            <thead class="thead custom-details-th">
+                                                                <tr>
+                                                                    <th>Batch #</th>
+                                                                    <th>Manufacture Date</th>
+                                                                    <th>Expiry Date</th>
+                                                                    <th>Quantity</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>101</td>
+                                                                    <td>21/10/25</td>
+                                                                    <td>10/12/25</td>
+                                                                    <td>1000</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>102</td>
+                                                                    <td>24/10/25</td>
+                                                                    <td>01/12/25</td>
+                                                                    <td>1000</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <!-- Row 2 -->
                                             <tr>
                                                 <td>2</td>
                                                 <td>Laddu</td>
                                                 <td>11111</td>
-                                                <td>159</td>
-                                                <td>Grams</td>
-                                                <td class="d-flex align-items-center">
-                                                    <a href="#" class="btn btn-greys bg-history-light">
-                                                        <i class="far fa-eye me-1"></i> View
-                                                    </a>
-                                                </td>
+                                                <td>159 <span>Grams</span></td>
 
+                                                <td class="d-flex align-items-center">
+                                                    <button
+                                                        class="btn btn-success text-white btn-sm d-flex align-items-center collapsed"
+                                                        type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#batchRow2" aria-expanded="false"
+                                                        aria-controls="batchRow2" data-bs-parent="#itemsAccordion">
+                                                        View
+                                                        <i class="fa fa-chevron-down ms-2 rotate-icon"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <!-- Collapsible batch details -->
+                                            <tr class="collapse-row">
+                                                <td colspan="6" class="p-0">
+                                                    <div id="batchRow2" class="collapse batch-details">
+                                                        <table class="table table-bordered mb-0">
+                                                            <thead class="thead custom-details-th">
+                                                                <tr>
+                                                                    <th>Batch #</th>
+                                                                    <th>Manufacture Date</th>
+                                                                    <th>Expiry Date</th>
+                                                                    <th>Quantity</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>201</td>
+                                                                    <td>10/10/25</td>
+                                                                    <td>10/11/25</td>
+                                                                    <td>79</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>202</td>
+                                                                    <td>15/10/25</td>
+                                                                    <td>15/11/25</td>
+                                                                    <td>80</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </td>
                                             </tr>
 
                                         </tbody>
@@ -406,78 +571,151 @@
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
-                <!-- /Table -->
+                <!-- /Page Wrapper -->
 
-            </div>
-        </div>
-        <!-- /Page Wrapper -->
+                <!-- Add Asset -->
+                <div class="toggle-sidebar">
+                    <div class="sidebar-layout-filter">
+                        <div class="sidebar-header">
+                            <h5>Filter</h5>
+                            <a href="#" class="sidebar-closes"><i class="fa-regular fa-circle-xmark"></i></a>
+                        </div>
+                        <div class="sidebar-body">
+                            <form action="#" autocomplete="off">
+                                <!-- Product -->
+                                <div class="accordion" id="accordionMain1">
+                                    <div class="card-header-new" id="headingOne">
+                                        <h6 class="filter-title">
+                                            <a href="javascript:void(0);" class="w-100" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseOne" aria-expanded="true"
+                                                aria-controls="collapseOne">
+                                                Product Name
+                                                <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
+                                            </a>
+                                        </h6>
+                                    </div>
 
-        <!-- Add Asset -->
-        <div class="toggle-sidebar">
-            <div class="sidebar-layout-filter">
-                <div class="sidebar-header">
-                    <h5>Filter</h5>
-                    <a href="#" class="sidebar-closes"><i class="fa-regular fa-circle-xmark"></i></a>
-                </div>
-                <div class="sidebar-body">
-                    <form action="#" autocomplete="off">
-                        <!-- Product -->
-                        <div class="accordion" id="accordionMain1">
-                            <div class="card-header-new" id="headingOne">
-                                <h6 class="filter-title">
-                                    <a href="javascript:void(0);" class="w-100" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Product Name
-                                        <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
-                                    </a>
-                                </h6>
-                            </div>
-
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                                data-bs-parent="#accordionExample1">
-                                <div class="card-body-chat">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div id="checkBoxes1">
-                                                <div class="form-custom">
-                                                    <input type="text" class="form-control" id="member_search1"
-                                                        placeholder="Search Product">
-                                                    <span><img src="assets/img/icons/search.svg" alt="img"></span>
-                                                </div>
-                                                <div class="selectBox-cont">
-                                                    <label class="custom_check w-100">
-                                                        <input type="checkbox" name="username">
-                                                        <span class="checkmark"></span> Lenovo 3rd Generation
-                                                    </label>
-                                                    <label class="custom_check w-100">
-                                                        <input type="checkbox" name="username">
-                                                        <span class="checkmark"></span> Nike Jordan
-                                                    </label>
-                                                    <label class="custom_check w-100">
-                                                        <input type="checkbox" name="username">
-                                                        <span class="checkmark"></span> Apple Series 5 Watch
-                                                    </label>
-                                                    <label class="custom_check w-100">
-                                                        <input type="checkbox" name="username">
-                                                        <span class="checkmark"></span> Amazon Echo Dot
-                                                    </label>
-                                                    <!-- View All -->
-                                                    <div class="view-content">
-                                                        <div class="viewall-One">
+                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                        data-bs-parent="#accordionExample1">
+                                        <div class="card-body-chat">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div id="checkBoxes1">
+                                                        <div class="form-custom">
+                                                            <input type="text" class="form-control" id="member_search1"
+                                                                placeholder="Search Product">
+                                                            <span><img src="assets/img/icons/search.svg"
+                                                                    alt="img"></span>
+                                                        </div>
+                                                        <div class="selectBox-cont">
                                                             <label class="custom_check w-100">
                                                                 <input type="checkbox" name="username">
-                                                                <span class="checkmark"></span> Lobar Handy
+                                                                <span class="checkmark"></span> Lenovo 3rd Generation
                                                             </label>
                                                             <label class="custom_check w-100">
                                                                 <input type="checkbox" name="username">
-                                                                <span class="checkmark"></span> Woodcraft Sandal
+                                                                <span class="checkmark"></span> Nike Jordan
+                                                            </label>
+                                                            <label class="custom_check w-100">
+                                                                <input type="checkbox" name="username">
+                                                                <span class="checkmark"></span> Apple Series 5 Watch
+                                                            </label>
+                                                            <label class="custom_check w-100">
+                                                                <input type="checkbox" name="username">
+                                                                <span class="checkmark"></span> Amazon Echo Dot
+                                                            </label>
+                                                            <!-- View All -->
+                                                            <div class="view-content">
+                                                                <div class="viewall-One">
+                                                                    <label class="custom_check w-100">
+                                                                        <input type="checkbox" name="username">
+                                                                        <span class="checkmark"></span> Lobar Handy
+                                                                    </label>
+                                                                    <label class="custom_check w-100">
+                                                                        <input type="checkbox" name="username">
+                                                                        <span class="checkmark"></span> Woodcraft Sandal
+                                                                    </label>
+                                                                </div>
+                                                                <div class="view-all">
+                                                                    <a href="javascript:void(0);"
+                                                                        class="viewall-button-One"><span
+                                                                            class="me-2">View
+                                                                            All</span><span><i
+                                                                                class="fa fa-circle-chevron-down"></i></span></a>
+                                                                </div>
+                                                            </div>
+                                                            <!-- /View All -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /Product -->
+
+                                <!-- Product Code -->
+                                <div class="accordion" id="accordionMain4">
+                                    <div class="card-header-new" id="headingFour">
+                                        <h6 class="filter-title">
+                                            <a href="javascript:void(0);" class="w-100 collapsed"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                                aria-expanded="true" aria-controls="collapseFour">
+                                                Product Code
+                                                <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
+                                            </a>
+                                        </h6>
+                                    </div>
+
+                                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                                        data-bs-parent="#accordionExample4">
+                                        <div class="card-body-chat">
+                                            <div id="checkBoxes3">
+                                                <div class="selectBox-cont">
+                                                    <div class="form-custom">
+                                                        <input type="text" class="form-control" id="member_search2"
+                                                            placeholder="Search Invoice">
+                                                        <span><img src="assets/img/icons/search.svg" alt="img"></span>
+                                                    </div>
+                                                    <label class="custom_check w-100">
+                                                        <input type="checkbox" name="category">
+                                                        <span class="checkmark"></span> P125389
+                                                    </label>
+                                                    <label class="custom_check w-100">
+                                                        <input type="checkbox" name="category">
+                                                        <span class="checkmark"></span> P125390
+                                                    </label>
+                                                    <label class="custom_check w-100">
+                                                        <input type="checkbox" name="category">
+                                                        <span class="checkmark"></span> P125391
+                                                    </label>
+                                                    <label class="custom_check w-100">
+                                                        <input type="checkbox" name="category">
+                                                        <span class="checkmark"></span> P125392
+                                                    </label>
+                                                    <!-- View All -->
+                                                    <div class="view-content">
+                                                        <div class="viewall-Two">
+                                                            <label class="custom_check w-100">
+                                                                <input type="checkbox" name="username">
+                                                                <span class="checkmark"></span> P125393
+                                                            </label>
+                                                            <label class="custom_check w-100">
+                                                                <input type="checkbox" name="username">
+                                                                <span class="checkmark"></span> P125394
+                                                            </label>
+                                                            <label class="custom_check w-100">
+                                                                <input type="checkbox" name="username">
+                                                                <span class="checkmark"></span> P125395
                                                             </label>
                                                         </div>
                                                         <div class="view-all">
                                                             <a href="javascript:void(0);"
-                                                                class="viewall-button-One"><span class="me-2">View
+                                                                class="viewall-button-Two"><span class="me-2">View
                                                                     All</span><span><i
                                                                         class="fa fa-circle-chevron-down"></i></span></a>
                                                         </div>
@@ -488,396 +726,327 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                                <!-- /Product Code -->
+
+                                <!-- Unts -->
+                                <div class="accordion accordion-last" id="accordionMain3">
+                                    <div class="card-header-new" id="headingThree">
+                                        <h6 class="filter-title">
+                                            <a href="javascript:void(0);" class="w-100 collapsed"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                                aria-expanded="true" aria-controls="collapseThree">
+                                                Units
+                                                <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
+                                            </a>
+                                        </h6>
+                                    </div>
+
+                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                        data-bs-parent="#accordionExample3">
+                                        <div class="card-body-chat">
+                                            <div id="checkBoxes2">
+                                                <div class="selectBox-cont">
+                                                    <label class="custom_check w-100">
+                                                        <input type="checkbox" name="bystatus">
+                                                        <span class="checkmark"></span> Inches
+                                                    </label>
+                                                    <label class="custom_check w-100">
+                                                        <input type="checkbox" name="bystatus">
+                                                        <span class="checkmark"></span> Pieces
+                                                    </label>
+                                                    <label class="custom_check w-100">
+                                                        <input type="checkbox" name="bystatus">
+                                                        <span class="checkmark"></span> Hours
+                                                    </label>
+                                                    <label class="custom_check w-100">
+                                                        <input type="checkbox" name="bystatus">
+                                                        <span class="checkmark"></span> Box
+                                                    </label>
+                                                    <label class="custom_check w-100">
+                                                        <input type="checkbox" name="bystatus">
+                                                        <span class="checkmark"></span> Kilograms
+                                                    </label>
+                                                    <label class="custom_check w-100">
+                                                        <input type="checkbox" name="bystatus">
+                                                        <span class="checkmark"></span> Meter
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /Units -->
+
+                                <div class="filter-buttons">
+                                    <button type="submit"
+                                        class="d-inline-flex align-items-center justify-content-center btn w-100 btn-primary">
+                                        Apply
+                                    </button>
+                                    <button type="submit"
+                                        class="d-inline-flex align-items-center justify-content-center btn w-100 btn-secondary">
+                                        Reset
+                                    </button>
+                                </div>
+                            </form>
+
                         </div>
-                        <!-- /Product -->
+                    </div>
+                </div>
+                <!-- /Add Asset -->
 
-                        <!-- Product Code -->
-                        <div class="accordion" id="accordionMain4">
-                            <div class="card-header-new" id="headingFour">
-                                <h6 class="filter-title">
-                                    <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseFour" aria-expanded="true"
-                                        aria-controls="collapseFour">
-                                        Product Code
-                                        <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
-                                    </a>
-                                </h6>
+                <!-- Add Stock in Modal -->
+                <div class="modal custom-modal fade" id="stock_in" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered modal-md">
+                        <div class="modal-content">
+                            <div class="modal-header border-0 pb-0">
+                                <div class="form-header modal-header-title text-start mb-0">
+                                    <h4 class="mb-0">Add Stock in</h4>
+                                </div>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
+                                </button>
                             </div>
+                            <form action="#">
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="input-block mb-3">
+                                                <label>Name</label>
+                                                <input type="text" class="bg-white-smoke form-control"
+                                                    placeholder="SEO Service">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="input-block mb-3">
+                                                <label>Quantity</label>
+                                                <input type="number" class="form-control" placeholder="0">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="input-block mb-0">
+                                                <label>Units</label>
+                                                <select class="select">
+                                                    <option>Pieces</option>
+                                                    <option>Inches</option>
+                                                    <option>Kilograms</option>
+                                                    <option>Inches</option>
+                                                    <option>Box</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="input-block mb-0">
+                                                <label>Notes</label>
+                                                <textarea rows="3" cols="3" class="form-control"
+                                                    placeholder="Enter Notes"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" data-bs-dismiss="modal"
+                                        class="btn btn-back cancel-btn me-2">Cancel</button>
+                                    <button type="submit" data-bs-dismiss="modal"
+                                        class="btn btn-primary paid-continue-btn">Add
+                                        Quantity</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Add Stock in Modal -->
 
-                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
-                                data-bs-parent="#accordionExample4">
-                                <div class="card-body-chat">
-                                    <div id="checkBoxes3">
-                                        <div class="selectBox-cont">
-                                            <div class="form-custom">
-                                                <input type="text" class="form-control" id="member_search2"
-                                                    placeholder="Search Invoice">
-                                                <span><img src="assets/img/icons/search.svg" alt="img"></span>
+                <!-- Remove Stock Modal -->
+                <div class="modal custom-modal fade" id="stock_out" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered modal-md">
+                        <div class="modal-content">
+                            <div class="modal-header border-0 pb-0">
+                                <div class="form-header modal-header-title text-start mb-0">
+                                    <h4 class="mb-0">Remove Stock</h4>
+                                </div>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
+                                </button>
+                            </div>
+                            <form action="#">
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="input-block mb-3">
+                                                <label>Name</label>
+                                                <input type="text" class="bg-white-smoke form-control"
+                                                    placeholder="SEO Service">
                                             </div>
-                                            <label class="custom_check w-100">
-                                                <input type="checkbox" name="category">
-                                                <span class="checkmark"></span> P125389
-                                            </label>
-                                            <label class="custom_check w-100">
-                                                <input type="checkbox" name="category">
-                                                <span class="checkmark"></span> P125390
-                                            </label>
-                                            <label class="custom_check w-100">
-                                                <input type="checkbox" name="category">
-                                                <span class="checkmark"></span> P125391
-                                            </label>
-                                            <label class="custom_check w-100">
-                                                <input type="checkbox" name="category">
-                                                <span class="checkmark"></span> P125392
-                                            </label>
-                                            <!-- View All -->
-                                            <div class="view-content">
-                                                <div class="viewall-Two">
-                                                    <label class="custom_check w-100">
-                                                        <input type="checkbox" name="username">
-                                                        <span class="checkmark"></span> P125393
-                                                    </label>
-                                                    <label class="custom_check w-100">
-                                                        <input type="checkbox" name="username">
-                                                        <span class="checkmark"></span> P125394
-                                                    </label>
-                                                    <label class="custom_check w-100">
-                                                        <input type="checkbox" name="username">
-                                                        <span class="checkmark"></span> P125395
-                                                    </label>
-                                                </div>
-                                                <div class="view-all">
-                                                    <a href="javascript:void(0);" class="viewall-button-Two"><span
-                                                            class="me-2">View All</span><span><i
-                                                                class="fa fa-circle-chevron-down"></i></span></a>
-                                                </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="input-block mb-3">
+                                                <label>Quantity</label>
+                                                <input type="number" class="form-control" placeholder="0">
                                             </div>
-                                            <!-- /View All -->
+                                        </div>
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="input-block mb-0">
+                                                <label>Units</label>
+                                                <select class="select">
+                                                    <option>Pieces</option>
+                                                    <option>Inches</option>
+                                                    <option>Kilograms</option>
+                                                    <option>Inches</option>
+                                                    <option>Box</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="input-block mb-0">
+                                                <label>Notes</label>
+                                                <textarea rows="3" cols="3" class="form-control"
+                                                    placeholder="Enter Notes"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" data-bs-dismiss="modal"
+                                        class="btn btn-back cancel-btn me-2">Cancel</button>
+                                    <button type="submit" data-bs-dismiss="modal"
+                                        class="btn btn-primary paid-continue-btn">Remove
+                                        Quantity</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Remove Stock Modal -->
+
+                <!-- Edit Stock in Modal -->
+                <div class="modal custom-modal fade" id="edit_inventory" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header border-0 pb-0">
+                                <div class="form-header modal-header-title text-start mb-0">
+                                    <h4 class="mb-0">Edit Inventory</h4>
+                                </div>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
+                                </button>
+                            </div>
+                            <form action="#">
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="input-block mb-3">
+                                                <label>Name</label>
+                                                <input type="text" class="form-control" value="Lorem ipsum dolor sit">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="input-block mb-3">
+                                                <label>Code</label>
+                                                <input type="text" class="form-control" value="P125389">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="input-block mb-3">
+                                                <label>Units</label>
+                                                <input type="text" class="form-control" value="Box">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="input-block mb-3">
+                                                <label>Quantity</label>
+                                                <input type="text" class="form-control" value="3">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="input-block mb-3">
+                                                <label>Selling Price</label>
+                                                <input type="text" class="form-control" value="$155.00">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="input-block mb-3">
+                                                <label>Purchase Price</label>
+                                                <input type="text" class="form-control" value="$150.00">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="input-block mb-0">
+                                                <label>Status</label>
+                                                <input type="text" class="form-control" value="Stock in">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" data-bs-dismiss="modal"
+                                        class="btn btn-back cancel-btn me-2">Cancel</button>
+                                    <button type="submit" data-bs-dismiss="modal"
+                                        class="btn btn-primary paid-continue-btn">Update</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Edit Stock in Modal -->
+
+                <!-- Delete Stock Modal -->
+                <div class="modal custom-modal fade" id="delete_stock" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered modal-md">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="form-header">
+                                    <h3>Delete Inventory</h3>
+                                    <p>Are you sure want to delete?</p>
+                                </div>
+                                <div class="modal-btn delete-action">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <a href="#" class="btn btn-primary paid-continue-btn">Delete</a>
+                                        </div>
+                                        <div class="col-6">
+                                            <a href="#" data-bs-dismiss="modal"
+                                                class="btn btn-primary paid-cancel-btn">Cancel</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- /Product Code -->
-
-                        <!-- Unts -->
-                        <div class="accordion accordion-last" id="accordionMain3">
-                            <div class="card-header-new" id="headingThree">
-                                <h6 class="filter-title">
-                                    <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseThree" aria-expanded="true"
-                                        aria-controls="collapseThree">
-                                        Units
-                                        <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
-                                    </a>
-                                </h6>
-                            </div>
-
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                data-bs-parent="#accordionExample3">
-                                <div class="card-body-chat">
-                                    <div id="checkBoxes2">
-                                        <div class="selectBox-cont">
-                                            <label class="custom_check w-100">
-                                                <input type="checkbox" name="bystatus">
-                                                <span class="checkmark"></span> Inches
-                                            </label>
-                                            <label class="custom_check w-100">
-                                                <input type="checkbox" name="bystatus">
-                                                <span class="checkmark"></span> Pieces
-                                            </label>
-                                            <label class="custom_check w-100">
-                                                <input type="checkbox" name="bystatus">
-                                                <span class="checkmark"></span> Hours
-                                            </label>
-                                            <label class="custom_check w-100">
-                                                <input type="checkbox" name="bystatus">
-                                                <span class="checkmark"></span> Box
-                                            </label>
-                                            <label class="custom_check w-100">
-                                                <input type="checkbox" name="bystatus">
-                                                <span class="checkmark"></span> Kilograms
-                                            </label>
-                                            <label class="custom_check w-100">
-                                                <input type="checkbox" name="bystatus">
-                                                <span class="checkmark"></span> Meter
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Units -->
-
-                        <div class="filter-buttons">
-                            <button type="submit"
-                                class="d-inline-flex align-items-center justify-content-center btn w-100 btn-primary">
-                                Apply
-                            </button>
-                            <button type="submit"
-                                class="d-inline-flex align-items-center justify-content-center btn w-100 btn-secondary">
-                                Reset
-                            </button>
-                        </div>
-                    </form>
-
-                </div>
-            </div>
-        </div>
-        <!-- /Add Asset -->
-
-        <!-- Add Stock in Modal -->
-        <div class="modal custom-modal fade" id="stock_in" role="dialog">
-            <div class="modal-dialog modal-dialog-centered modal-md">
-                <div class="modal-content">
-                    <div class="modal-header border-0 pb-0">
-                        <div class="form-header modal-header-title text-start mb-0">
-                            <h4 class="mb-0">Add Stock in</h4>
-                        </div>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-
-                        </button>
-                    </div>
-                    <form action="#">
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-lg-12 col-md-12">
-                                    <div class="input-block mb-3">
-                                        <label>Name</label>
-                                        <input type="text" class="bg-white-smoke form-control"
-                                            placeholder="SEO Service">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="input-block mb-3">
-                                        <label>Quantity</label>
-                                        <input type="number" class="form-control" placeholder="0">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="input-block mb-0">
-                                        <label>Units</label>
-                                        <select class="select">
-                                            <option>Pieces</option>
-                                            <option>Inches</option>
-                                            <option>Kilograms</option>
-                                            <option>Inches</option>
-                                            <option>Box</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="input-block mb-0">
-                                        <label>Notes</label>
-                                        <textarea rows="3" cols="3" class="form-control"
-                                            placeholder="Enter Notes"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" data-bs-dismiss="modal"
-                                class="btn btn-back cancel-btn me-2">Cancel</button>
-                            <button type="submit" data-bs-dismiss="modal" class="btn btn-primary paid-continue-btn">Add
-                                Quantity</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- /Add Stock in Modal -->
-
-        <!-- Remove Stock Modal -->
-        <div class="modal custom-modal fade" id="stock_out" role="dialog">
-            <div class="modal-dialog modal-dialog-centered modal-md">
-                <div class="modal-content">
-                    <div class="modal-header border-0 pb-0">
-                        <div class="form-header modal-header-title text-start mb-0">
-                            <h4 class="mb-0">Remove Stock</h4>
-                        </div>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-
-                        </button>
-                    </div>
-                    <form action="#">
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-lg-12 col-md-12">
-                                    <div class="input-block mb-3">
-                                        <label>Name</label>
-                                        <input type="text" class="bg-white-smoke form-control"
-                                            placeholder="SEO Service">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="input-block mb-3">
-                                        <label>Quantity</label>
-                                        <input type="number" class="form-control" placeholder="0">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="input-block mb-0">
-                                        <label>Units</label>
-                                        <select class="select">
-                                            <option>Pieces</option>
-                                            <option>Inches</option>
-                                            <option>Kilograms</option>
-                                            <option>Inches</option>
-                                            <option>Box</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="input-block mb-0">
-                                        <label>Notes</label>
-                                        <textarea rows="3" cols="3" class="form-control"
-                                            placeholder="Enter Notes"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" data-bs-dismiss="modal"
-                                class="btn btn-back cancel-btn me-2">Cancel</button>
-                            <button type="submit" data-bs-dismiss="modal"
-                                class="btn btn-primary paid-continue-btn">Remove Quantity</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- /Remove Stock Modal -->
-
-        <!-- Edit Stock in Modal -->
-        <div class="modal custom-modal fade" id="edit_inventory" role="dialog">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header border-0 pb-0">
-                        <div class="form-header modal-header-title text-start mb-0">
-                            <h4 class="mb-0">Edit Inventory</h4>
-                        </div>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-
-                        </button>
-                    </div>
-                    <form action="#">
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="input-block mb-3">
-                                        <label>Name</label>
-                                        <input type="text" class="form-control" value="Lorem ipsum dolor sit">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="input-block mb-3">
-                                        <label>Code</label>
-                                        <input type="text" class="form-control" value="P125389">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="input-block mb-3">
-                                        <label>Units</label>
-                                        <input type="text" class="form-control" value="Box">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="input-block mb-3">
-                                        <label>Quantity</label>
-                                        <input type="text" class="form-control" value="3">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="input-block mb-3">
-                                        <label>Selling Price</label>
-                                        <input type="text" class="form-control" value="$155.00">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="input-block mb-3">
-                                        <label>Purchase Price</label>
-                                        <input type="text" class="form-control" value="$150.00">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="input-block mb-0">
-                                        <label>Status</label>
-                                        <input type="text" class="form-control" value="Stock in">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" data-bs-dismiss="modal"
-                                class="btn btn-back cancel-btn me-2">Cancel</button>
-                            <button type="submit" data-bs-dismiss="modal"
-                                class="btn btn-primary paid-continue-btn">Update</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- /Edit Stock in Modal -->
-
-        <!-- Delete Stock Modal -->
-        <div class="modal custom-modal fade" id="delete_stock" role="dialog">
-            <div class="modal-dialog modal-dialog-centered modal-md">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="form-header">
-                            <h3>Delete Inventory</h3>
-                            <p>Are you sure want to delete?</p>
-                        </div>
-                        <div class="modal-btn delete-action">
-                            <div class="row">
-                                <div class="col-6">
-                                    <a href="#" class="btn btn-primary paid-continue-btn">Delete</a>
-                                </div>
-                                <div class="col-6">
-                                    <a href="#" data-bs-dismiss="modal"
-                                        class="btn btn-primary paid-cancel-btn">Cancel</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
+                <!-- /Delete Stock Modal -->
+
             </div>
-        </div>
-        <!-- /Delete Stock Modal -->
-
-    </div>
-    <!-- /Main Wrapper -->
+            <!-- /Main Wrapper -->
 
 
-    <!-- jQuery -->
-    <script src="../assets/js/jquery-3.7.1.min.js"></script>
+            <!-- jQuery -->
+            <script src="../assets/js/jquery-3.7.1.min.js"></script>
 
-    <!-- Bootstrap Core JS -->
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+            <!-- Bootstrap Core JS -->
+            <script src="../assets/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Datatable JS -->
-    <script src="../assets/plugins/datatables/datatables.min.js"></script>
+            <!-- Datatable JS -->
+            <script src="../assets/plugins/datatables/datatables.min.js"></script>
 
-    <!-- select CSS -->
-    <script src="../assets/plugins/select2/js/select2.min.js"></script>
+            <!-- select CSS -->
+            <script src="../assets/plugins/select2/js/select2.min.js"></script>
 
-    <!-- Slimscroll JS -->
-    <script src="../assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+            <!-- Slimscroll JS -->
+            <script src="../assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-    <!-- Datepicker Core JS -->
-    <script src="../assets/plugins/moment/moment.min.js"></script>
-    <script src="../assets/js/bootstrap-datetimepicker.min.js"></script>
+            <!-- Datepicker Core JS -->
+            <script src="../assets/plugins/moment/moment.min.js"></script>
+            <script src="../assets/js/bootstrap-datetimepicker.min.js"></script>
 
-    <!-- multiselect JS -->
-    <script src="../assets/js/jquery-ui.min.js"></script>
+            <!-- multiselect JS -->
+            <script src="../assets/js/jquery-ui.min.js"></script>
 
-    <!-- Theme Settings JS -->
-    <script src="../assets/js/theme-settings.js"></script>
-    <script src="../assets/js/greedynav.js"></script>
+            <!-- Theme Settings JS -->
+            <script src="../assets/js/theme-settings.js"></script>
+            <script src="../assets/js/greedynav.js"></script>
 
-    <!-- Custom JS -->
-    <script src="../assets/js/script.js"></script>
+            <!-- Custom JS -->
+            <script src="../assets/js/script.js"></script>
 
 </body>
 

@@ -39,6 +39,7 @@
 
 </head>
 
+
 <body>
 
 
@@ -55,10 +56,10 @@
             <div class="main-logo d-inline float-start d-lg-flex align-items-center d-none d-sm-none d-md-none">
                 <div class="logo-white">
                     <a href="index.html">
-                        <img src="../assets/img/logo-new.jpg" class="img-fluid logo-blue" alt="Logo">
+                        <img src="assets/img/logo-full-white.png" class="img-fluid logo-blue" alt="Logo">
                     </a>
                     <a href="index.html">
-                        <img src="../assets/img/logo-new.jpg" class="img-fluid logo-small" alt="Logo">
+                        <img src="assets/img/logo-small-white.png" class="img-fluid logo-small" alt="Logo">
                     </a>
                 </div>
                 <div class="logo-color">
@@ -290,12 +291,14 @@
 
 
 
-
+                        <!-- Purchases -->
 
                         <!-- Purchases -->
                         <li class="menu-title"><span>Purchases</span></li>
-
-
+                        <!-- <li>
+                            <a href="./purchase-order.html"><i class="fe fe-shopping-bag"></i> <span>Purchase
+                                    Orders</span></a>
+                        </li> -->
 
                         <li>
                             <a href="../orders/order-enquiry-list.html"><i class="fe fe-file"></i> <span>Order
@@ -310,17 +313,16 @@
 
                         <li class="menu-title"><span>Sales</span></li>
                         <li>
-                            <a href="../sales/delivery-challan-list.html"><i class="fe fe-truck"></i> <span>
+                            <a href="./delivery-challan-list.html"><i class="fe fe-truck"></i> <span>
                                     Goods Outwards DC</span></a>
                         </li>
                         <li>
-                            <a href="../sales/invoice-list.html"><i class="fe fe-file"></i> <span>Invoice</span></a>
+                            <a href="./invoice-list.html"><i class="fe fe-file"></i> <span>Invoice</span></a>
                         </li>
                         <li>
-                            <a href="../sales/sales-return-list.html"><i class="fe fe-rotate-ccw"></i> <span>Sales
+                            <a href="./sales-return-list.html"><i class="fe fe-rotate-ccw"></i> <span>Sales
                                     Return</span></a>
                         </li>
-
                         <!-- User Management -->
                         <li class="menu-title"><span>User Management</span></li>
                         <li>
@@ -342,25 +344,27 @@
             </div>
         </div>
         <!-- /Sidebar -->
-
         <!-- Page Wrapper -->
         <div class="page-wrapper">
             <div class="content container-fluid">
+
                 <!-- Page Header -->
                 <div class="page-header">
                     <div class="content-page-header">
-                        <h5>Customers</h5>
+                        <h5>Sales Return</h5>
                         <div class="list-btn">
                             <ul class="filter-list">
                                 <li>
                                     <a class="btn btn-filters w-auto popup-toggle" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="Filter"><span class="me-2"><img
-                                                src="../assets/img/icons/filter-icon.svg" alt="filter"></span>Filter
-                                    </a>
+                                        data-bs-placement="bottom" data-bs-original-title="Filter"><span
+                                            class="me-2"><img src="../assets/img/icons/filter-icon.svg"
+                                                alt="filter"></span>Filter </a>
                                 </li>
+
                                 <li>
-                                    <a class="btn btn-primary" href="../customers/add-customers.html"><i
-                                            class="fa fa-plus-circle me-2" aria-hidden="true"></i>Add Customer</a>
+                                    <a class="btn btn-primary" href="./sales-return.html"><i
+                                            class="fa fa-plus-circle me-2" aria-hidden="true"></i>Add Sales Return
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -395,108 +399,150 @@
                 </div>
                 <!-- /Search Filter -->
 
+                <!-- Table -->
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card-table">
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-center table-hover datatable">
+                                    <table class="table table-bordered table-striped align-middle datatable">
                                         <thead class="thead-light">
                                             <tr>
                                                 <th>#</th>
-                                                <th>Name</th>
-                                                <th>Phone</th>
-                                                <th>Balance </th>
-                                                <th>Total Invoice </th>
-                                                <th>Created</th>
+                                                <th>Sales Return ID</th>
+                                                <th>Customer</th>
+                                                <th>Amount</th>
+                                                <th>Payment Mode</th>
+                                                <th>Created On</th>
                                                 <th>Status</th>
-                                                <th class="no-sort">Actions</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-
                                             <tr>
                                                 <td>1</td>
-                                                <td>
-                                                    <a href="./customer-products.html"
-                                                        class="text-decoration-none fw-semibold text-dark">
-                                                        John Smith
-                                                    </a>
-                                                </td>
-                                                <td>+1 989-438-3131</td>
-                                                <td>$4,220</td>
-                                                <td>2</td>
-                                                <td>19 Dec 2023, 06:12 PM</td>
-                                                <td><span class="badge bg-success-light">Active</span></td>
+                                                <td>SR-1001</td>
+                                                <td>ABC Corp</td>
+                                                <td>$500.00</td>
+                                                <td>Bank Transfer</td>
+                                                <td>2025-11-01</td>
+                                                <td><span class="badge bg-success">Completed</span></td>
                                                 <td class="d-flex align-items-center">
-                                                    <a href="add-invoice.html" class="btn btn-greys me-2">
-                                                        <i class="fa fa-plus-circle me-1"></i> Invoice
-                                                    </a>
-
                                                     <div class="dropdown dropdown-action">
                                                         <a href="#" class="btn-action-icon" data-bs-toggle="dropdown"
                                                             aria-expanded="false">
                                                             <i class="fas fa-ellipsis-v"></i>
                                                         </a>
-                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                        <div
+                                                            class="dropdown-menu dropdown-menu-right credit-note-dropdown">
                                                             <ul>
-                                                                <li><a class="dropdown-item"
-                                                                        href="edit-customer.html"><i
+                                                                <li><a class="dropdown-item" href="#"><i
                                                                             class="far fa-edit me-2"></i>Edit</a></li>
-                                                                <li><a class="dropdown-item" href="javascript:void(0);"
+                                                                <li><a class="dropdown-item" href="#"
                                                                         data-bs-toggle="modal"
-                                                                        data-bs-target="#delete_modal">
-                                                                        <i class="far fa-trash-alt me-2"></i>Delete</a>
+                                                                        data-bs-target="#delete_modal"><i
+                                                                            class="far fa-trash-alt me-2"></i>Delete</a>
                                                                 </li>
-                                                                <li><a class="dropdown-item"
-                                                                        href="customer-details.html"><i
+                                                                <li><a class="dropdown-item" href="#"><i
                                                                             class="far fa-eye me-2"></i>View</a></li>
-                                                                <li><a class="dropdown-item"
-                                                                        href="active-customers.html"><i
-                                                                            class="fa-solid fa-power-off me-2"></i>Activate</a>
-                                                                </li>
-                                                                <li><a class="dropdown-item"
-                                                                        href="deactive-customers.html"><i
-                                                                            class="far fa-bell-slash me-2"></i>Deactivate</a>
-                                                                </li>
                                                             </ul>
                                                         </div>
                                                     </div>
                                                 </td>
                                             </tr>
-
-
+                                            <tr>
+                                                <td>2</td>
+                                                <td>SR-1002</td>
+                                                <td>XYZ Ltd</td>
+                                                <td>$300.00</td>
+                                                <td>Cash</td>
+                                                <td>2025-11-02</td>
+                                                <td><span class="badge bg-warning">Pending</span></td>
+                                                <td class="d-flex align-items-center">
+                                                    <div class="dropdown dropdown-action">
+                                                        <a href="#" class="btn-action-icon" data-bs-toggle="dropdown"
+                                                            aria-expanded="false">
+                                                            <i class="fas fa-ellipsis-v"></i>
+                                                        </a>
+                                                        <div
+                                                            class="dropdown-menu dropdown-menu-right credit-note-dropdown">
+                                                            <ul>
+                                                                <li><a class="dropdown-item" href="#"><i
+                                                                            class="far fa-edit me-2"></i>Edit</a></li>
+                                                                <li><a class="dropdown-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#delete_modal"><i
+                                                                            class="far fa-trash-alt me-2"></i>Delete</a>
+                                                                </li>
+                                                                <li><a class="dropdown-item" href="#"><i
+                                                                            class="far fa-eye me-2"></i>View</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>SR-1003</td>
+                                                <td>LMN Inc</td>
+                                                <td>$450.00</td>
+                                                <td>Credit Card</td>
+                                                <td>2025-11-03</td>
+                                                <td><span class="badge bg-danger">Cancelled</span></td>
+                                                <td class="d-flex align-items-center">
+                                                    <div class="dropdown dropdown-action">
+                                                        <a href="#" class="btn-action-icon" data-bs-toggle="dropdown"
+                                                            aria-expanded="false">
+                                                            <i class="fas fa-ellipsis-v"></i>
+                                                        </a>
+                                                        <div
+                                                            class="dropdown-menu dropdown-menu-right credit-note-dropdown">
+                                                            <ul>
+                                                                <li><a class="dropdown-item" href="#"><i
+                                                                            class="far fa-edit me-2"></i>Edit</a></li>
+                                                                <li><a class="dropdown-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#delete_modal"><i
+                                                                            class="far fa-trash-alt me-2"></i>Delete</a>
+                                                                </li>
+                                                                <li><a class="dropdown-item" href="#"><i
+                                                                            class="far fa-eye me-2"></i>View</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
                                         </tbody>
+
                                     </table>
+
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- /Table -->
+
             </div>
         </div>
         <!-- /Page Wrapper -->
-
         <!-- Add Asset -->
-        <div class="toggle-sidebar ledge">
+        <div class="toggle-sidebar">
             <div class="sidebar-layout-filter">
-                <div class="sidebar-header ledge">
-                    <h5>PayIn</h5>
+                <div class="sidebar-header">
+                    <h5>Filter</h5>
                     <a href="#" class="sidebar-closes"><i class="fa-regular fa-circle-xmark"></i></a>
-                </div>
-                <div class="sidebar-header submenu">
-                    <h6>Test Company</h6>
-                    <p class="text-success-light">Balance: $400</p>
                 </div>
                 <div class="sidebar-body">
                     <form action="#" autocomplete="off">
                         <!-- Customer -->
-                        <div class="accordion accordion-last" id="accordionMain1">
+                        <div class="accordion" id="accordionMain1">
                             <div class="card-header-new" id="headingOne">
                                 <h6 class="filter-title">
                                     <a href="javascript:void(0);" class="w-100" data-bs-toggle="collapse"
                                         data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Customers
+                                        Vendor
                                         <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
                                     </a>
                                 </h6>
@@ -510,7 +556,7 @@
                                             <div id="checkBoxes1">
                                                 <div class="form-custom">
                                                     <input type="text" class="form-control" id="member_search1"
-                                                        placeholder="Search Customer">
+                                                        placeholder="Search Vendor">
                                                     <span><img src="assets/img/icons/search.svg" alt="img"></span>
                                                 </div>
                                                 <div class="selectBox-cont">
@@ -520,26 +566,26 @@
                                                     </label>
                                                     <label class="custom_check w-100">
                                                         <input type="checkbox" name="username">
-                                                        <span class="checkmark"></span> Johnny Charles
+                                                        <span class="checkmark"></span> Johnny
                                                     </label>
                                                     <label class="custom_check w-100">
                                                         <input type="checkbox" name="username">
-                                                        <span class="checkmark"></span> Robert George
+                                                        <span class="checkmark"></span> Robert
                                                     </label>
                                                     <label class="custom_check w-100">
                                                         <input type="checkbox" name="username">
-                                                        <span class="checkmark"></span> Sharonda Letha
+                                                        <span class="checkmark"></span> Sharonda
                                                     </label>
                                                     <!-- View All -->
                                                     <div class="view-content">
                                                         <div class="viewall-One">
                                                             <label class="custom_check w-100">
                                                                 <input type="checkbox" name="username">
-                                                                <span class="checkmark"></span> Pricilla Maureen
+                                                                <span class="checkmark"></span> Pricilla
                                                             </label>
                                                             <label class="custom_check w-100">
                                                                 <input type="checkbox" name="username">
-                                                                <span class="checkmark"></span> Randall Hollis
+                                                                <span class="checkmark"></span> Randall
                                                             </label>
                                                         </div>
                                                         <div class="view-all">
@@ -558,33 +604,138 @@
                             </div>
                         </div>
                         <!-- /Customer -->
-                        <div class="accordion" id="accordionMain2">
-                            <div class="col-lg-12 col-sm-12">
-                                <div class="input-block mb-3">
-                                    <label>Enter Amount</label>
-                                    <input type="text" class="form-control" placeholder="Enter Amount">
-                                </div>
+
+                        <!-- By Status -->
+                        <div class="accordion" id="accordionMain3">
+                            <div class="card-header-new" id="headingThree">
+                                <h6 class="filter-title">
+                                    <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThree" aria-expanded="true"
+                                        aria-controls="collapseThree">
+                                        Purchase ID
+                                        <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
+                                    </a>
+                                </h6>
                             </div>
-                            <div class="col-lg-12 col-md-12">
-                                <div class="input-block mb-3">
-                                    <label>Payment Date</label>
-                                    <div class="cal-icon cal-icon-info">
-                                        <input type="text" class="datetimepicker form-control"
-                                            placeholder="Select Date">
+
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#accordionExample3">
+                                <div class="card-body-chat">
+                                    <div id="checkBoxes2">
+                                        <div class="selectBox-cont">
+                                            <label class="custom_check w-100">
+                                                <input type="checkbox" name="bystatus">
+                                                <span class="checkmark"></span> PO-100405361
+                                            </label>
+                                            <label class="custom_check w-100">
+                                                <input type="checkbox" name="bystatus">
+                                                <span class="checkmark"></span> PO-100405362
+                                            </label>
+                                            <label class="custom_check w-100">
+                                                <input type="checkbox" name="bystatus">
+                                                <span class="checkmark"></span> PO-100405363
+                                            </label>
+                                            <label class="custom_check w-100">
+                                                <input type="checkbox" name="bystatus">
+                                                <span class="checkmark"></span> PO-100405364
+                                            </label>
+                                            <label class="custom_check w-100">
+                                                <input type="checkbox" name="bystatus">
+                                                <span class="checkmark"></span> PO-100405365
+                                            </label>
+                                            <label class="custom_check w-100">
+                                                <input type="checkbox" name="bystatus">
+                                                <span class="checkmark"></span> PO-100405366
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="input-block mb-3 notes-form-group-info">
-                                <label>Notes</label>
-                                <textarea class="form-control" placeholder="Enter your notes"></textarea>
+                        </div>
+                        <!-- /By Status -->
+
+                        <!-- By Status -->
+                        <div class="accordion" id="accordionMain5">
+                            <div class="card-header-new" id="headingFive">
+                                <h6 class="filter-title">
+                                    <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFive" aria-expanded="true"
+                                        aria-controls="collapseFive">
+                                        By Status
+                                        <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
+                                    </a>
+                                </h6>
                             </div>
-                            <div class="modal-footer">
-                                <a href="#" data-bs-dismiss="modal" class="btn btn-back cancel-btn me-2">Cancel</a>
-                                <a href="#" data-bs-dismiss="modal" class="btn btn-primary paid-continue-btn">Add
-                                    Payment</a>
+
+                            <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
+                                data-bs-parent="#accordionExample3">
+                                <div class="card-body-chat">
+                                    <div id="checkBoxes2">
+                                        <div class="selectBox-cont">
+                                            <label class="custom_check w-100">
+                                                <input type="checkbox" name="bystatus">
+                                                <span class="checkmark"></span> Paid
+                                            </label>
+                                            <label class="custom_check w-100">
+                                                <input type="checkbox" name="bystatus">
+                                                <span class="checkmark"></span> Pending
+                                            </label>
+                                            <label class="custom_check w-100">
+                                                <input type="checkbox" name="bystatus">
+                                                <span class="checkmark"></span> Cancelled
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <!-- /By Status -->
+
+                        <!-- Category -->
+                        <div class="accordion accordion-last" id="accordionMain4">
+                            <div class="card-header-new" id="headingFour">
+                                <h6 class="filter-title">
+                                    <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFour" aria-expanded="true"
+                                        aria-controls="collapseFour">
+                                        Payment Method
+                                        <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
+                                    </a>
+                                </h6>
+                            </div>
+
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                                data-bs-parent="#accordionExample4">
+                                <div class="card-body-chat">
+                                    <div id="checkBoxes3">
+                                        <div class="selectBox-cont">
+                                            <label class="custom_check w-100">
+                                                <input type="checkbox" name="category">
+                                                <span class="checkmark"></span> Cash
+                                            </label>
+                                            <label class="custom_check w-100">
+                                                <input type="checkbox" name="category">
+                                                <span class="checkmark"></span> Cheque
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Category -->
+
+                        <div class="filter-buttons">
+                            <button type="submit"
+                                class="d-inline-flex align-items-center justify-content-center btn w-100 btn-primary">
+                                Apply
+                            </button>
+                            <button type="submit"
+                                class="d-inline-flex align-items-center justify-content-center btn w-100 btn-secondary">
+                                Reset
+                            </button>
+                        </div>
                     </form>
+
                 </div>
             </div>
         </div>
@@ -596,7 +747,7 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="form-header">
-                            <h3>Delete Customer</h3>
+                            <h3>Delete Purchases</h3>
                             <p>Are you sure want to delete?</p>
                         </div>
                         <div class="modal-btn delete-action">
@@ -620,6 +771,7 @@
     </div>
     <!-- /Main Wrapper -->
 
+
     <!-- jQuery -->
     <script src="../assets/js/jquery-3.7.1.min.js"></script>
 
@@ -642,9 +794,6 @@
     <!-- multiselect JS -->
     <script src="../assets/js/jquery-ui.min.js"></script>
 
-    <!-- Theme Settings JS -->
-    <script src="../assets/js/theme-settings.js"></script>
-    <script src="../assets/js/greedynav.js"></script>
 
     <!-- Custom JS -->
     <script src="../assets/js/script.js"></script>

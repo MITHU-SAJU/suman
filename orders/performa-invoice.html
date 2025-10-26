@@ -359,20 +359,31 @@
                         <!-- Purchases -->
                         <li class="menu-title"><span>Purchases</span></li>
 
-                        <li>
-                            <a href="../purchase/purchase-order.html"><i class="fe fe-shopping-bag"></i> <span>Purchase
-                                    Orders</span></a>
-                        </li>
+
 
                         <li>
-                            <a href="order-enquiry.html"><i class="fe fe-file"></i> <span>Order
-                                    Enquiry</span></a>
+                            <a href="./order-enquiry-list.html"><i class="fe fe-file"></i> <span>Order
+                                    Booking</span></a>
                         </li>
 
 
                         <li>
-                            <a href="./performa-invoice.html"><i class="fe fe-file-text"></i> <span>Proforma
+                            <a href="./performa-invoice-list.html"><i class="fe fe-file-text"></i> <span>Proforma
                                     Invoice</span></a>
+                        </li>
+
+
+                        <li class="menu-title"><span>Sales</span></li>
+                        <li>
+                            <a href="../sales/delivery-challan-list.html"><i class="fe fe-truck"></i> <span>
+                                    Goods Outwards DC</span></a>
+                        </li>
+                        <li>
+                            <a href="../sales/invoice-list.html"><i class="fe fe-file"></i> <span>Invoice</span></a>
+                        </li>
+                        <li>
+                            <a href="../sales/sales-return-list.html"><i class="fe fe-rotate-ccw"></i> <span>Sales
+                                    Return</span></a>
                         </li>
 
                         <!-- User Management -->
@@ -435,20 +446,12 @@
                                             </div>
                                         </div>
 
+                                        <!-- Due Date -->
                                         <div class="col-lg-4 col-md-6">
                                             <div class="input-block">
-                                                <label>Order</label>
-                                                <div
-                                                    class="form-control d-flex align-items-center justify-content-between radio-container">
-                                                    <label class="radio-label mb-0">
-                                                        <input type="radio" name="applyTax" checked>
-                                                        <span>Pending</span>
-                                                    </label>
-                                                    <label class="radio-label mb-0">
-                                                        <input type="radio" name="applyTax">
-                                                        <span>Completed</span>
-                                                    </label>
-                                                </div>
+                                                <label>Date <span class="text-danger">*</span></label>
+                                                <input type="date" class="form-control mb-3"
+                                                    placeholder="Select Due Date">
                                             </div>
                                         </div>
 
